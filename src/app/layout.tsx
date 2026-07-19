@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { SmoothScroll } from "@/components/shared/SmoothScroll"
 import { FloatingBall } from "@/components/shared/FloatingBall"
+import { SecurityGuard } from "@/components/shared/SecurityGuard"
 import { generateLocalBusinessSchema, generateProfessionalServiceSchema, generateWebSiteSchema } from "@/lib/schema"
 import "./globals.css"
 
@@ -85,6 +86,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark`} suppressHydrationWarning>
       <head>
+        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
+        <meta httpEquiv="X-Frame-Options" content="DENY" />
+        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
+        <meta name="referrer" content="no-referrer" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -97,6 +102,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
+        <SecurityGuard />
         {/* Header OUTSIDE smooth-scroll — like Zelta. mix-blend-mode needs to blend with viewport content */}
         <Navbar />
 

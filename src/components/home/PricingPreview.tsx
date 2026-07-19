@@ -63,8 +63,8 @@ export function PricingPreview() {
 
               <WhatsAppButton
                 message={pkg.whatsappMessage}
-                className="w-full"
-                variant={pkg.popular ? "default" : "outline"}
+                className={cn("w-full", !pkg.popular && "bg-transparent border-2 border-foreground/20 text-foreground hover:bg-foreground hover:text-background")}
+                variant="default"
               >
                 {pkg.cta}
               </WhatsAppButton>

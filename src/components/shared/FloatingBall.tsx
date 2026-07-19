@@ -68,7 +68,7 @@ export function FloatingBall() {
       href={SITE.whatsapp}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-5 right-5 sm:bottom-8 sm:right-8 z-[9998] group"
+      className="fixed bottom-8 right-6 sm:bottom-8 sm:right-8 z-[9998] group"
       aria-label="Chat on WhatsApp"
     >
       {/* Outer glow pulse — hidden on mobile for less distraction */}

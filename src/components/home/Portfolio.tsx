@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect, useCallback } from "react"
+import { useState } from "react"
 import { Container } from "@/components/shared/Container"
 import { ScrollReveal } from "@/components/shared/ScrollReveal"
 import Image from "next/image"
@@ -46,51 +46,7 @@ const projects = [
 ]
 
 export function Portfolio() {
-  const [activePanel, setActivePanel] = useState<number | null>(0)
-  const [isDesktop, setIsDesktop] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const check = () => setIsDesktop(window.innerWidth >= 1024)
-    check()
-    window.addEventListener("resize", check)
-    return () => window.removeEventListener("resize", check)
-  }, [])
-
-  const updatePanelFromScroll = useCallback(() => {
-    if (!isDesktop) return
-    const container = containerRef.current
-    if (!container) return
-
-    const rect = container.getBoundingClientRect()
-    const viewportH = window.innerHeight
-    if (rect.top > viewportH || rect.bottom < 0) return
-
-    const sectionProgress = 1 - (rect.bottom - viewportH) / rect.height
-    const panelCount = projects.length
-    const rawIndex = sectionProgress * (panelCount + 0.5)
-    const index = Math.min(Math.max(0, Math.floor(rawIndex)), panelCount - 1)
-
-    setActivePanel(index)
-  }, [isDesktop])
-
-  useEffect(() => {
-    if (!isDesktop) return
-    let ticking = false
-    const handleScroll = () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          updatePanelFromScroll()
-          ticking = false
-        })
-        ticking = true
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    updatePanelFromScroll()
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [updatePanelFromScroll, isDesktop])
+  const [activePanel, setActivePanel] = useState(0)
 
   return (
     <section className="relative overflow-hidden py-16 sm:py-20 md:py-28 lg:py-36 bg-background">
@@ -113,9 +69,8 @@ export function Portfolio() {
         </ScrollReveal>
       </Container>
 
-      {/* Mobile: stacked cards, Desktop: horizontal accordion */}
       <Container>
-        {/* Mobile layout */}
+        {/* Mobile: stacked tap-to-expand */}
         <div className="lg:hidden flex flex-col gap-3">
           {projects.map((project, index) => {
             const isActive = activePanel === index
@@ -123,8 +78,8 @@ export function Portfolio() {
               <div
                 key={project.id}
                 className="relative rounded-xl overflow-hidden cursor-pointer"
-                style={{ height: isActive ? "220px" : "64px", transition: "height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)" }}
-                onClick={() => setActivePanel(isActive ? null : index)}
+                style={{ height: isActive ? "240px" : "64px", transition: "height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)" }}
+                onClick={() => setActivePanel(isActive ? -1 : index)}
               >
                 <Image
                   src={project.image}
@@ -136,12 +91,10 @@ export function Portfolio() {
                 <div className="absolute inset-0 bg-black/50" style={{ opacity: isActive ? 0.3 : 0.6, transition: "opacity 0.5s ease" }} />
                 <div className={cn("absolute bottom-0 left-0 right-0 bg-gradient-to-r h-1", project.gradient)} />
 
-                {/* Label */}
                 <div className="absolute bottom-4 left-4 z-10">
                   <h3 className="font-heading font-medium text-white text-sm truncate">{project.title}</h3>
                 </div>
 
-                {/* Expanded info */}
                 <div
                   className="absolute inset-0 flex items-center p-5 z-10"
                   style={{
@@ -167,21 +120,19 @@ export function Portfolio() {
           })}
         </div>
 
-        {/* Desktop horizontal accordion */}
-        <div
-          ref={containerRef}
-          className="relative w-full hidden lg:flex flex-row gap-2 h-[80vh]"
-        >
+        {/* Desktop: click to expand horizontal accordion */}
+        <div className="relative w-full hidden lg:flex flex-row gap-2 h-[80vh]">
           {projects.map((project, index) => {
             const isActive = activePanel === index
             return (
-              <a
+              <div
                 key={project.id}
-                href="#"
-                onClick={(e) => e.preventDefault()}
-                onMouseEnter={() => setActivePanel(index)}
+                role="button"
+                tabIndex={0}
+                onClick={() => setActivePanel(index)}
+                onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setActivePanel(index) }}
                 className={cn(
-                  "relative rounded-xl overflow-hidden cursor-pointer block lg:h-full",
+                  "relative rounded-xl overflow-hidden cursor-pointer block lg:h-full outline-none focus-visible:ring-2 focus-visible:ring-primary",
                   isActive ? "lg:flex-[5]" : "lg:flex-[1]"
                 )}
                 style={{ transition: "all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1)" }}
@@ -200,14 +151,12 @@ export function Portfolio() {
                 <div className="absolute inset-0 bg-black/50" style={{ opacity: isActive ? 0.3 : 0.6, transition: "opacity 0.5s ease" }} />
                 <div className={cn("absolute bottom-0 left-0 right-0 bg-gradient-to-r h-1", project.gradient)} style={{ transition: "all 0.5s ease" }} />
 
-                {/* Label */}
                 <div className="absolute bottom-8 left-8 z-10">
                   <h3 className={cn("font-heading font-medium text-white truncate", isActive ? "text-2xl xl:text-3xl whitespace-nowrap" : "text-sm xl:text-base")}>
                     {project.title}
                   </h3>
                 </div>
 
-                {/* Expanded info */}
                 <div
                   className="absolute inset-0 flex items-center p-12 xl:p-16"
                   style={{
@@ -228,7 +177,7 @@ export function Portfolio() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </div>
             )
           })}
         </div>

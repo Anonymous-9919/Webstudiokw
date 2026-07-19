@@ -5,6 +5,7 @@ import { WhatsAppButton } from "@/components/shared/WhatsAppButton"
 import { PACKAGES, SITE } from "@/lib/constants"
 import { generateFAQSchema, generateBreadcrumbSchema } from "@/lib/schema"
 import { Check, Star } from "lucide-react"
+import { cn } from "@/lib/utils"
 import { FinalCTA } from "@/components/home/FinalCTA"
 
 export const metadata: Metadata = {
@@ -86,7 +87,7 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
-                <WhatsAppButton message={pkg.whatsappMessage} variant={pkg.popular ? "default" : "outline"} className="w-full" showIcon={false}>{pkg.cta}</WhatsAppButton>
+                <WhatsAppButton message={pkg.whatsappMessage} variant={pkg.popular ? "default" : "default"} className={cn("w-full", !pkg.popular && "bg-transparent border-2 border-foreground/20 text-foreground hover:bg-foreground hover:text-background")} showIcon={false}>{pkg.cta}</WhatsAppButton>
               </div>
             ))}
           </div>

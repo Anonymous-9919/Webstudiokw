@@ -9,9 +9,9 @@ import { Globe, ShoppingCart, Code, Check } from "lucide-react"
 import { FinalCTA } from "@/components/home/FinalCTA"
 
 export const metadata: Metadata = {
-  title: "Web Development Services Kuwait | Website Design & Ecommerce Development",
+  title: "Web Development Services in Kuwait | Websites & Ecommerce",
   description:
-    "Professional web development services in Kuwait. Business websites from 150 KWD, ecommerce stores from 450 KWD, and custom web applications. Get a free quote from WebStudioKW.",
+    "Web development services in Kuwait — business websites from 150 KWD, ecommerce stores from 450 KWD, and custom web applications. Professional web design by WebStudioKW.",
   keywords: [
     "web development services Kuwait",
     "website design Kuwait",
@@ -19,6 +19,8 @@ export const metadata: Metadata = {
     "custom web applications Kuwait",
     "business website Kuwait",
     "professional website Kuwait",
+    "online store Kuwait",
+    "web design company Kuwait",
   ],
   authors: [{ name: SITE.founder, url: SITE.url }],
   creator: SITE.founder,
@@ -138,7 +140,7 @@ export default function ServicesPage() {
         <Container>
           <SectionHeading
             badge="Why Choose Us"
-            title="Why Kuwait Businesses Choose WebStudioKW"
+            title="Why Businesses Choose WebStudioKW"
             description="We combine modern technology with local market understanding to deliver websites that actually work."
           />
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

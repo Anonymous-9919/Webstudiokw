@@ -1,8 +1,8 @@
 export const SITE = {
   name: "WebStudioKW",
-  title: "Website Developer Kuwait | Professional Web Design & Ecommerce Development",
+  title: "Web Development Kuwait | Website Design & Ecommerce — WebStudioKW",
   description:
-    "WebStudioKW creates professional websites and ecommerce stores for businesses in Kuwait. Affordable website development packages starting from 150 KWD.",
+    "Web development agency in Kuwait. We design and build professional business websites, ecommerce stores, and custom web apps. Packages from 150 KWD. Get a free quote.",
   url: "https://webstudiokw.com",
   phone: "+965 65664793",
   phoneRaw: "+96565664793",

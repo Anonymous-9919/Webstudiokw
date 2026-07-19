@@ -8,9 +8,9 @@ import { Badge } from "@/components/ui/badge"
 import { FinalCTA } from "@/components/home/FinalCTA"
 
 export const metadata: Metadata = {
-  title: "Portfolio | Web Development Projects in Kuwait",
-  description: "See the websites and ecommerce stores we've built for businesses in Kuwait.",
-  keywords: ["web portfolio Kuwait", "website projects Kuwait", "WebStudioKW portfolio", "web development examples Kuwait", "ecommerce website Kuwait", "business website design Kuwait"],
+  title: "Portfolio | Web Development Projects in Kuwait — WebStudioKW",
+  description: "See the websites and ecommerce stores WebStudioKW has built for businesses in Kuwait. Healthcare, restaurant, automotive, and retail web projects.",
+  keywords: ["web portfolio Kuwait", "website projects Kuwait", "WebStudioKW portfolio", "web development examples Kuwait", "ecommerce website Kuwait", "business website design Kuwait", "clinic website Kuwait", "restaurant website Kuwait"],
   authors: [{ name: SITE.founder, url: SITE.url }],
   creator: SITE.founder, publisher: SITE.brand,
   metadataBase: new URL(SITE.url),

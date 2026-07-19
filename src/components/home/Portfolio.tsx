@@ -46,16 +46,24 @@ const projects = [
 ]
 
 export function Portfolio() {
-  const [activePanel, setActivePanel] = useState<number>(0)
+  const [activePanel, setActivePanel] = useState<number | null>(0)
+  const [isDesktop, setIsDesktop] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
+  useEffect(() => {
+    const check = () => setIsDesktop(window.innerWidth >= 1024)
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [])
+
   const updatePanelFromScroll = useCallback(() => {
+    if (!isDesktop) return
     const container = containerRef.current
     if (!container) return
 
     const rect = container.getBoundingClientRect()
     const viewportH = window.innerHeight
-
     if (rect.top > viewportH || rect.bottom < 0) return
 
     const sectionProgress = 1 - (rect.bottom - viewportH) / rect.height
@@ -64,9 +72,10 @@ export function Portfolio() {
     const index = Math.min(Math.max(0, Math.floor(rawIndex)), panelCount - 1)
 
     setActivePanel(index)
-  }, [])
+  }, [isDesktop])
 
   useEffect(() => {
+    if (!isDesktop) return
     let ticking = false
     const handleScroll = () => {
       if (!ticking) {
@@ -81,7 +90,7 @@ export function Portfolio() {
     window.addEventListener("scroll", handleScroll, { passive: true })
     updatePanelFromScroll()
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [updatePanelFromScroll])
+  }, [updatePanelFromScroll, isDesktop])
 
   return (
     <section className="relative overflow-hidden py-16 sm:py-20 md:py-28 lg:py-36 bg-background">
@@ -104,11 +113,64 @@ export function Portfolio() {
         </ScrollReveal>
       </Container>
 
-      {/* Accordion — vertical on mobile, horizontal on desktop */}
+      {/* Mobile: stacked cards, Desktop: horizontal accordion */}
       <Container>
+        {/* Mobile layout */}
+        <div className="lg:hidden flex flex-col gap-3">
+          {projects.map((project, index) => {
+            const isActive = activePanel === index
+            return (
+              <div
+                key={project.id}
+                className="relative rounded-xl overflow-hidden cursor-pointer"
+                style={{ height: isActive ? "220px" : "64px", transition: "height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)" }}
+                onClick={() => setActivePanel(isActive ? null : index)}
+              >
+                <Image
+                  src={project.image}
+                  alt={`${project.title} - ${project.category} by WebStudioKW in Kuwait`}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+                <div className="absolute inset-0 bg-black/50" style={{ opacity: isActive ? 0.3 : 0.6, transition: "opacity 0.5s ease" }} />
+                <div className={cn("absolute bottom-0 left-0 right-0 bg-gradient-to-r h-1", project.gradient)} />
+
+                {/* Label */}
+                <div className="absolute bottom-4 left-4 z-10">
+                  <h3 className="font-heading font-medium text-white text-sm truncate">{project.title}</h3>
+                </div>
+
+                {/* Expanded info */}
+                <div
+                  className="absolute inset-0 flex items-center p-5 z-10"
+                  style={{
+                    opacity: isActive ? 1 : 0,
+                    transform: isActive ? "translateY(0)" : "translateY(20px)",
+                    transition: "all 0.4s ease",
+                    pointerEvents: isActive ? "auto" : "none",
+                  }}
+                >
+                  <div className="max-w-md">
+                    <span className={cn("inline-block text-xs font-medium uppercase tracking-wider px-3 py-1 rounded-full mb-3 bg-gradient-to-r shadow-lg text-white", project.gradient)}>
+                      {project.category}
+                    </span>
+                    <h3 className="font-heading text-xl font-medium text-white mb-2">{project.title}</h3>
+                    <div className="w-10 h-0.5 bg-white mb-3" />
+                    <span className="inline-flex items-center gap-2 text-xs text-white/90 hover:text-white transition-colors">
+                      Visit site <ArrowUpRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Desktop horizontal accordion */}
         <div
           ref={containerRef}
-          className="relative w-full flex flex-col gap-2 h-[80vh] sm:h-[90vh] lg:h-[80vh] lg:flex-row"
+          className="relative w-full hidden lg:flex flex-row gap-2 h-[80vh]"
         >
           {projects.map((project, index) => {
             const isActive = activePanel === index
@@ -118,69 +180,36 @@ export function Portfolio() {
                 href="#"
                 onClick={(e) => e.preventDefault()}
                 onMouseEnter={() => setActivePanel(index)}
-                onTouchStart={() => setActivePanel(index)}
-                role="button"
-                tabIndex={0}
                 className={cn(
-                  "relative rounded-xl overflow-hidden cursor-pointer block",
-                  "lg:h-full",
-                  "h-28 sm:h-32",
-                  isActive ? "lg:flex-[5]" : "lg:flex-[1]",
-                  isActive ? "flex-[3]" : "flex-[1]"
+                  "relative rounded-xl overflow-hidden cursor-pointer block lg:h-full",
+                  isActive ? "lg:flex-[5]" : "lg:flex-[1]"
                 )}
-                style={{
-                  transition: "all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1)",
-                }}
+                style={{ transition: "all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1)" }}
               >
                 <Image
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} - ${project.category} by WebStudioKW in Kuwait`}
                   fill
                   className="object-cover"
                   style={{
                     transform: isActive ? "scale(1)" : "scale(1.1)",
                     transition: "transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1)",
                   }}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                  sizes="20vw"
                 />
+                <div className="absolute inset-0 bg-black/50" style={{ opacity: isActive ? 0.3 : 0.6, transition: "opacity 0.5s ease" }} />
+                <div className={cn("absolute bottom-0 left-0 right-0 bg-gradient-to-r h-1", project.gradient)} style={{ transition: "all 0.5s ease" }} />
 
-                <div
-                  className="absolute inset-0 bg-black/50"
-                  style={{
-                    opacity: isActive ? 0.3 : 0.6,
-                    transition: "opacity 0.5s ease",
-                  }}
-                />
-
-                <div
-                  className={cn(
-                    "absolute bottom-0 left-0 right-0 bg-gradient-to-r",
-                    project.gradient,
-                    isActive ? "h-1.5" : "h-1"
-                  )}
-                  style={{ transition: "all 0.5s ease" }}
-                />
-
-                {/* Label — horizontal on mobile, vertical on desktop when not active */}
-                <div
-                  className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 lg:bottom-8 lg:left-8 z-10"
-                >
-                  <h3
-                    className={cn(
-                      "font-heading font-medium text-white truncate",
-                      "text-sm sm:text-base",
-                      isActive
-                        ? "lg:text-2xl xl:text-3xl whitespace-nowrap"
-                        : "lg:text-sm xl:text-base"
-                    )}
-                  >
+                {/* Label */}
+                <div className="absolute bottom-8 left-8 z-10">
+                  <h3 className={cn("font-heading font-medium text-white truncate", isActive ? "text-2xl xl:text-3xl whitespace-nowrap" : "text-sm xl:text-base")}>
                     {project.title}
                   </h3>
                 </div>
 
-                {/* Expanded info — only visible when active */}
+                {/* Expanded info */}
                 <div
-                  className="absolute inset-0 flex items-center p-5 sm:p-8 lg:p-12 xl:p-16"
+                  className="absolute inset-0 flex items-center p-12 xl:p-16"
                   style={{
                     opacity: isActive ? 1 : 0,
                     transform: isActive ? "translateY(0)" : "translateY(30px)",
@@ -189,23 +218,13 @@ export function Portfolio() {
                   }}
                 >
                   <div className="max-w-md">
-                    <span
-                      className={cn(
-                        "inline-block text-xs sm:text-sm font-medium uppercase tracking-wider",
-                        "px-3 py-1 sm:px-4 sm:py-1.5 rounded-full mb-3 sm:mb-4",
-                        "bg-gradient-to-r shadow-lg",
-                        project.gradient,
-                        "text-white"
-                      )}
-                    >
+                    <span className={cn("inline-block text-sm font-medium uppercase tracking-wider px-4 py-1.5 rounded-full mb-4 bg-gradient-to-r shadow-lg text-white", project.gradient)}>
                       {project.category}
                     </span>
-                    <h3 className="font-heading text-lg sm:text-2xl lg:text-3xl xl:text-4xl font-medium text-white mb-3 sm:mb-4">
-                      {project.title}
-                    </h3>
-                    <div className="w-12 h-0.5 bg-white mb-3 sm:mb-4" />
-                    <span className="inline-flex items-center gap-2 text-xs sm:text-sm lg:text-base text-white/90 hover:text-white transition-colors">
-                      Visit site <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    <h3 className="font-heading text-3xl xl:text-4xl font-medium text-white mb-4">{project.title}</h3>
+                    <div className="w-12 h-0.5 bg-white mb-4" />
+                    <span className="inline-flex items-center gap-2 text-base text-white/90 hover:text-white transition-colors">
+                      Visit site <ArrowUpRight className="h-4 w-4" />
                     </span>
                   </div>
                 </div>

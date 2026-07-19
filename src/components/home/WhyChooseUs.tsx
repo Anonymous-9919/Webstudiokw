@@ -17,7 +17,7 @@ export function WhyChooseUs() {
       <Container className="relative z-10">
         <ScrollReveal>
           <SectionHeading
-            title="Why Kuwait Businesses Choose Us"
+            title="Why Businesses Choose Us"
             description="We're not just developers — we're your growth partners."
             align="center"
           />

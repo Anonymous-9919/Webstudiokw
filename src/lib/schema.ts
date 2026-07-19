@@ -12,6 +12,7 @@ export function generateLocalBusinessSchema() {
     address: {
       "@type": "PostalAddress",
       addressLocality: "Kuwait City",
+      addressRegion: "Al Asimah",
       addressCountry: "KW",
     },
     geo: {
@@ -25,6 +26,11 @@ export function generateLocalBusinessSchema() {
     },
     priceRange: "$$",
     openingHours: "Mo-Fr 09:00-18:00",
+    sameAs: [
+      "https://instagram.com/webstudiokw",
+      "https://linkedin.com/company/webstudiokw",
+      "https://x.com/webstudiokw",
+    ],
   }
 }
 
@@ -40,6 +46,7 @@ export function generateProfessionalServiceSchema() {
     address: {
       "@type": "PostalAddress",
       addressLocality: "Kuwait City",
+      addressRegion: "Al Asimah",
       addressCountry: "KW",
     },
     areaServed: {
@@ -48,30 +55,38 @@ export function generateProfessionalServiceSchema() {
     },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Web Development Services",
+      name: "Web Development Services in Kuwait",
       itemListElement: [
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Business Website Development",
-            description: "Professional business websites for companies in Kuwait",
+            name: "Business Website Development in Kuwait",
+            description: "Professional business websites for companies in Kuwait — corporate sites, landing pages, and booking websites",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Ecommerce Website Development",
-            description: "Complete online stores with product management and payment integration",
+            name: "Ecommerce Website Development in Kuwait",
+            description: "Complete online stores with product management, secure checkout, and payment integration for the Kuwait market",
           },
         },
         {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Custom Web Applications",
-            description: "Tailored web applications, dashboards, and SaaS platforms",
+            name: "Custom Web Applications in Kuwait",
+            description: "Tailored web applications, admin dashboards, SaaS platforms, and custom software solutions",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Website Redesign in Kuwait",
+            description: "Modern redesign of existing websites to improve performance, design, and conversion rates",
           },
         },
       ],

@@ -64,16 +64,16 @@ export const metadata: Metadata = {
     },
   },
   keywords: [
-    "website developer Kuwait",
-    "web developer Kuwait",
+    "web development Kuwait",
     "website design Kuwait",
-    "web design company Kuwait",
+    "web developer Kuwait",
     "ecommerce website Kuwait",
-    "ecommerce developer Kuwait",
     "website company Kuwait",
     "professional website Kuwait",
     "business website Kuwait",
-    "WebStudioKW",
+    "hire web developer Kuwait",
+    "web design Kuwait City",
+    "affordable website Kuwait",
   ],
 }
 

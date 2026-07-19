@@ -101,9 +101,9 @@ export function About() {
           ref={titleRef}
           className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground text-center max-w-4xl mx-auto leading-tight mb-16"
         >
-          Choose The Best{" "}
+          A Trusted{" "}
           <span className="text-primary">Web Development</span>{" "}
-          Agency in Kuwait
+          Partner in Kuwait
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -122,7 +122,7 @@ export function About() {
 
             <div
               ref={imgRightRef}
-              className="absolute bottom-0 right-0 w-[45%] aspect-square overflow-hidden rounded-xl border-4 border-white shadow-2xl"
+              className="absolute bottom-0 right-0 w-[45%] aspect-square overflow-hidden rounded-xl border-4 border-[oklch(0.96_0.005_90)] shadow-2xl"
             >
               <Image
                 src="/images/hero-team.jpg"
@@ -145,17 +145,17 @@ export function About() {
           {/* Right — Text content */}
           <div ref={textRef} className="flex flex-col gap-6">
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              As the leading web development agency in Kuwait, we at
+              As a web development agency in Kuwait, we at
               WebStudioKW are dedicated to helping businesses grow through
               modern, conversion-focused websites. Whether you need a business
               website, ecommerce store, or custom web application, we&apos;ve got
               you covered.
             </p>
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
-              With us by your side, be pioneers when it comes to your digital
-              presence. Our team of experienced developers and designers can be
-              your guiding light towards excellence. Reach out to WebStudioKW
-              and make sure you are best represented online.
+              We work closely with each client to understand their goals and
+              deliver a website that performs. From clinics and restaurants to
+              retail stores and service businesses — we build websites that
+              help Kuwait businesses succeed online.
             </p>
             <div className="pt-4">
               <WhatsAppButton

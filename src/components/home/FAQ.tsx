@@ -32,12 +32,12 @@ export function FAQ() {
         <div className="mx-auto max-w-3xl">
           {FAQS.map((faq, index) => (
             <ScrollReveal key={faq.question} delay={index * 80}>
-              <div className="border-b border-white/10">
+              <div className="border-b border-border/30">
                 <button
                   onClick={() =>
                     setOpenIndex(openIndex === index ? null : index)
                   }
-                  className="flex w-full items-center justify-between gap-4 py-5 sm:py-6 text-left hover:bg-white/[0.02] px-2 -mx-2 rounded-lg transition-colors duration-200"
+                  className="flex w-full items-center justify-between gap-4 py-5 sm:py-6 min-h-[56px] text-left hover:bg-white/[0.02] px-2 -mx-2 rounded-lg transition-colors duration-200"
                 >
                   <span
                     className={cn(

@@ -8,9 +8,9 @@ import { MessageCircle, Phone, Mail, MapPin } from "lucide-react"
 import { FinalCTA } from "@/components/home/FinalCTA"
 
 export const metadata: Metadata = {
-  title: "Contact Us | WebStudioKW — Get In Touch",
-  description: "Contact WebStudioKW for professional website development in Kuwait. Reach us via WhatsApp, phone, or email.",
-  keywords: ["contact web developer Kuwait", "WebStudioKW contact", "website consultation Kuwait", "WhatsApp web developer Kuwait", "web design contact Kuwait", "free website quote Kuwait"],
+  title: "Contact Us | WebStudioKW — Web Development Kuwait",
+  description: "Contact WebStudioKW for web development in Kuwait. Get a free quote for your business website, ecommerce store, or custom web app. WhatsApp, phone, or email.",
+  keywords: ["contact web developer Kuwait", "WebStudioKW contact", "website consultation Kuwait", "WhatsApp web developer Kuwait", "web design contact Kuwait", "free website quote Kuwait", "hire web developer Kuwait"],
   authors: [{ name: SITE.founder, url: SITE.url }],
   creator: SITE.founder, publisher: SITE.brand,
   metadataBase: new URL(SITE.url),

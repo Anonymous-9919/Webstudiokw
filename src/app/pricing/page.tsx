@@ -8,10 +8,10 @@ import { Check, Star } from "lucide-react"
 import { FinalCTA } from "@/components/home/FinalCTA"
 
 export const metadata: Metadata = {
-  title: "Website Development Pricing Kuwait | Affordable Web Design Packages",
+  title: "Website Development Pricing in Kuwait | Affordable Web Design",
   description:
-    "Affordable website development packages in Kuwait. Business websites from 150 KWD, ecommerce stores from 450 KWD, custom web apps from 750 KWD.",
-  keywords: ["website pricing Kuwait", "web design packages Kuwait", "affordable website Kuwait", "ecommerce pricing Kuwait"],
+    "Website development pricing in Kuwait. Business websites from 150 KWD, ecommerce stores from 450 KWD, custom web apps from 750 KWD. No hidden costs.",
+  keywords: ["website pricing Kuwait", "web design packages Kuwait", "affordable website Kuwait", "ecommerce pricing Kuwait", "website cost Kuwait", "cheap website Kuwait"],
   authors: [{ name: SITE.founder, url: SITE.url }],
   creator: SITE.founder, publisher: SITE.brand,
   metadataBase: new URL(SITE.url),

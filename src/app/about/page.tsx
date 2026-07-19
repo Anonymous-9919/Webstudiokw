@@ -8,9 +8,9 @@ import { FinalCTA } from "@/components/home/FinalCTA"
 import { Target, Eye, Zap, Users } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About Us | WebStudioKW — Kuwait Web Development Studio",
-  description: "Learn about WebStudioKW, a Kuwait-based digital studio helping businesses build professional online platforms.",
-  keywords: ["about WebStudioKW", "web development studio Kuwait", "Osama Shah Kuwait", "Kuwait web agency", "digital studio Kuwait", "website company Kuwait"],
+  title: "About Us | WebStudioKW — Kuwait Web Development Agency",
+  description: "WebStudioKW is a web development agency in Kuwait. We design and build professional websites, ecommerce stores, and custom web applications for businesses across Kuwait.",
+  keywords: ["about WebStudioKW", "web development agency Kuwait", "web design company Kuwait", "Kuwait web developer", "digital agency Kuwait", "website company Kuwait", "Osama Shah Kuwait"],
   authors: [{ name: SITE.founder, url: SITE.url }],
   creator: SITE.founder, publisher: SITE.brand,
   metadataBase: new URL(SITE.url),

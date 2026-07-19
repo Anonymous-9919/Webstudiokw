@@ -1,44 +1,36 @@
-# Starter Config — Copy-Paste Boilerplate
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Copy the relevant files from each folder into your new project root:
+## Getting Started
 
-## Quick Setup
+First, run the development server:
 
 ```bash
-# 1. Copy all config files to your new project
-copy "_starter-config\nodejs\package.json" ".\"
-copy "_starter-config\env\.env.example" ".\"
-copy "_starter-config\github\.gitignore" ".\"
-copy "_starter-config\vercel\vercel.json" ".\"
-copy "_starter-config\vercel\.vercelignore" ".\"
-
-# 2. Copy Supabase files
-copy "_starter-config\supabase\migration.sql" ".\"
-copy "_starter-config\supabase\storage.sql" ".\"
-
-# 3. Copy lib folder (create lib\ first)
-mkdir lib
-copy "_starter-config\supabase\supabase-client.js" "lib\supabase.js"
-
-# 4. Install dependencies
-npm install
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-## What Each File Does
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-| Folder | File | Purpose |
-|--------|------|---------|
-| `nodejs/` | `package.json` | Node.js deps (Express, Supabase, Google GenAI, Busboy, Vercel CLI) |
-| `env/` | `.env.example` | Template for Supabase URL + keys, rename to `.env.local` |
-| `github/` | `.gitignore` | Ignores `node_modules/`, `.vercel/`, `.env*`, `*.local` |
-| `vercel/` | `vercel.json` | Static + serverless function routing config |
-| `vercel/` | `.vercelignore` | Excludes `node_modules`, `.git`, `.env*` from deploy |
-| `supabase/` | `migration.sql` | Full DB schema: profiles, websites, pages, assets, contacts, etc. |
-| `supabase/` | `storage.sql` | Supabase Storage setup (placeholder) |
-| `supabase/` | `supabase-client.js` | Exports `supabase` (anon) + `supabaseAdmin` (service role) clients |
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## After Copying
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-1. **Rename `.env.example` → `.env.local`** and fill in your Supabase credentials
-2. **Run `migration.sql`** in Supabase SQL Editor
-3. **Deploy** via `npx vercel --prod`
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

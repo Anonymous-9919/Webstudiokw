@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer"
 import { SmoothScroll } from "@/components/shared/SmoothScroll"
 import { FloatingBall } from "@/components/shared/FloatingBall"
 import { SecurityGuard } from "@/components/shared/SecurityGuard"
+import { PullToRefresh } from "@/components/shared/PullToRefresh"
 import { generateLocalBusinessSchema, generateProfessionalServiceSchema, generateWebSiteSchema } from "@/lib/schema"
 import "./globals.css"
 
@@ -103,6 +104,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
         <SecurityGuard />
+        <PullToRefresh />
         {/* Header OUTSIDE smooth-scroll — like Zelta. mix-blend-mode needs to blend with viewport content */}
         <Navbar />
 

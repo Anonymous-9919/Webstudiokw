@@ -84,17 +84,17 @@ export function FloatingBall() {
       <div ref={ballRef} className="relative">
         <div
           ref={fillRef}
-          className="w-[48px] h-[48px] sm:w-[68px] sm:h-[68px] rounded-full flex items-center justify-center transition-shadow duration-300 group-hover:shadow-[0_0_30px_oklch(0.75_0.15_175/0.5)]"
+          className="w-[56px] h-[56px] sm:w-[68px] sm:h-[68px] rounded-full flex items-center justify-center transition-shadow duration-300 group-hover:shadow-[0_0_30px_oklch(0.75_0.15_175/0.5)]"
           style={{
             background: "conic-gradient(from -90deg, oklch(0.75 0.15 175) 0deg, oklch(0.2 0.02 260) 0deg)",
             boxShadow: "0 4px 20px oklch(0.75 0.15 175 / 0.3)",
           }}
         >
           {/* Inner dark circle */}
-          <div className="w-[34px] h-[34px] sm:w-[58px] sm:h-[58px] rounded-full bg-[#0a0a0f] flex items-center justify-center ring-2 ring-[#0a0a0f]">
+          <div className="w-[38px] h-[38px] sm:w-[58px] sm:h-[58px] rounded-full bg-[#0a0a0f] flex items-center justify-center ring-2 ring-[#0a0a0f]">
             <span
-              className="font-heading font-bold tracking-wide leading-none text-white/90"
-              style={{ fontSize: "clamp(8px, 2vw, 11px)", whiteSpace: "nowrap" }}
+              className="font-heading font-bold tracking-wide leading-none text-white/90 text-[7px] sm:text-[11px]"
+              style={{ whiteSpace: "nowrap" }}
             >
               Let&apos;s Talk
             </span>

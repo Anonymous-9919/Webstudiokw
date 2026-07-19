@@ -67,63 +67,11 @@ export function SecurityGuard() {
       }
     }
 
-    // Disable console output in production
-    if (process.env.NODE_ENV === "production") {
-      const noop = () => {}
-      const originalConsole = { ...console }
-      Object.keys(originalConsole).forEach((key) => {
-          ;(console as unknown as Record<string, unknown>)[key] = noop
-      })
-
-      // Anti-debugging: slow down DevTools
-      const devtoolsDetector = () => {
-        const threshold = 160
-        const start = performance.now()
-        debugger
-        const end = performance.now()
-        if (end - start > threshold) {
-          document.body.innerHTML = ""
-          window.location.href = "about:blank"
-        }
-      }
-
-      // Run devtools detection periodically
-      const interval = setInterval(() => {
-        try {
-          devtoolsDetector()
-        } catch {
-          // debugger statement was caught
-        }
-      }, 5000)
-
-      // Also detect on window resize (DevTools open causes resize)
-      let resizeTimeout: ReturnType<typeof setTimeout>
-      const handleResize = () => {
-        clearTimeout(resizeTimeout)
-        resizeTimeout = setTimeout(() => {
-          const widthThreshold = window.outerWidth - window.innerWidth > 160
-          const heightThreshold = window.outerHeight - window.innerHeight > 160
-          if (widthThreshold || heightThreshold) {
-            document.body.innerHTML = ""
-            window.location.href = "about:blank"
-          }
-        }, 500)
-      }
-
-      window.addEventListener("resize", handleResize)
-
-      return () => {
-        clearInterval(interval)
-        window.removeEventListener("resize", handleResize)
-        window.removeEventListener("contextmenu", handleContextMenu)
-        window.removeEventListener("keydown", handleKeyDown)
-        window.removeEventListener("dragstart", handleDragStart)
-        window.removeEventListener("selectstart", handleSelectStart)
-        clearTimeout(resizeTimeout)
-        Object.keys(originalConsole).forEach((key) => {
-          ;(console as unknown as Record<string, unknown>)[key] = originalConsole[key as keyof Console]
-        })
-      }
+    return () => {
+      window.removeEventListener("contextmenu", handleContextMenu)
+      window.removeEventListener("keydown", handleKeyDown)
+      window.removeEventListener("dragstart", handleDragStart)
+      window.removeEventListener("selectstart", handleSelectStart)
     }
 
     window.addEventListener("contextmenu", handleContextMenu)

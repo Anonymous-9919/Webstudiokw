@@ -77,7 +77,7 @@ export function Services() {
               </p>
               <div className="mt-6">
                 <a
-                  href="#contact"
+                  href="/services"
                   className="inline-flex items-center gap-2 text-sm font-medium text-foreground border-b border-foreground/30 pb-1 hover:border-primary hover:text-primary transition-all duration-300 group"
                 >
                   View all services

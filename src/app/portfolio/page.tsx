@@ -1,14 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Container } from "@/components/shared/Container"
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton"
 import { SITE } from "@/lib/constants"
 import { generateBreadcrumbSchema } from "@/lib/schema"
-import { ArrowUpRight, ArrowLeft } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { ArrowLeft, ArrowUpRight } from "lucide-react"
+import { gsap, ScrollTrigger } from "@/components/shared/SmoothScroll"
 
 const projects = [
   {
@@ -67,8 +67,142 @@ const projects = [
   },
 ]
 
+const row1 = projects.slice(0, 2)
+const row2 = projects.slice(2, 4)
+const row3 = projects.slice(4, 6)
+
 export default function PortfolioPage() {
-  const [activePanel, setActivePanel] = useState(0)
+  const planeRef = useRef<HTMLDivElement>(null)
+  const row1Ref = useRef<HTMLDivElement>(null)
+  const row2Ref = useRef<HTMLDivElement>(null)
+  const row3Ref = useRef<HTMLDivElement>(null)
+  const ctaTitleRef = useRef<HTMLHeadingElement>(null)
+  const ctaBtnRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // 3D plane entrance animation
+      if (planeRef.current) {
+        gsap.fromTo(
+          planeRef.current,
+          {
+            y: -550,
+            rotateX: 15,
+            rotateZ: 20,
+            opacity: 0.2,
+          },
+          {
+            y: 380,
+            rotateX: 0,
+            rotateZ: 0,
+            opacity: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: planeRef.current,
+              start: "top 90%",
+              end: "bottom 20%",
+              scrub: 0.5,
+            },
+          }
+        )
+      }
+
+      // Row parallax — alternating directions
+      if (row1Ref.current) {
+        gsap.fromTo(
+          row1Ref.current,
+          { x: 200 },
+          {
+            x: -200,
+            ease: "none",
+            scrollTrigger: {
+              trigger: row1Ref.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.5,
+            },
+          }
+        )
+      }
+      if (row2Ref.current) {
+        gsap.fromTo(
+          row2Ref.current,
+          { x: -200 },
+          {
+            x: 200,
+            ease: "none",
+            scrollTrigger: {
+              trigger: row2Ref.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.5,
+            },
+          }
+        )
+      }
+      if (row3Ref.current) {
+        gsap.fromTo(
+          row3Ref.current,
+          { x: 200 },
+          {
+            x: -200,
+            ease: "none",
+            scrollTrigger: {
+              trigger: row3Ref.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.5,
+            },
+          }
+        )
+      }
+
+      // CTA text 3D reveal
+      if (ctaTitleRef.current) {
+        const words = ctaTitleRef.current.querySelectorAll(".cta-word")
+        gsap.fromTo(
+          words,
+          {
+            y: 50,
+            rotateX: -80,
+            opacity: 0,
+            transformOrigin: "50% 0%",
+          },
+          {
+            y: 0,
+            rotateX: 0,
+            opacity: 1,
+            stagger: 0.1,
+            ease: "back.out(1.7)",
+            scrollTrigger: {
+              trigger: ctaTitleRef.current,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        )
+      }
+
+      if (ctaBtnRef.current) {
+        gsap.fromTo(
+          ctaBtnRef.current,
+          { y: -70, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ctaBtnRef.current,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        )
+      }
+    })
+
+    return () => ctx.revert()
+  }, [])
 
   return (
     <>
@@ -83,9 +217,9 @@ export default function PortfolioPage() {
       />
 
       {/* Hero */}
-      <section className="bg-background py-16 sm:py-20">
+      <section className="bg-background pt-20 sm:pt-28 pb-12 sm:pb-16">
         <Container>
-          <div className="mx-auto max-w-3xl">
+          <div className="mx-auto max-w-3xl text-center">
             <Link
               href="/"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
@@ -93,144 +227,159 @@ export default function PortfolioPage() {
               <ArrowLeft className="w-4 h-4" />
               Back to home
             </Link>
-            <span className="mb-6 inline-block rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary">Our Work</span>
-            <h1 className="mt-4 font-heading text-4xl font-bold tracking-tight sm:text-5xl text-foreground">Projects We&apos;ve Delivered</h1>
-            <p className="mt-6 text-lg leading-relaxed text-muted-foreground">Take a look at the websites we&apos;ve designed and developed for businesses across Kuwait.</p>
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">
+              {SITE.brand} &middot; Portfolio
+            </p>
+            <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[0.95]">
+              Case <span className="text-primary">Studies</span>
+            </h1>
+            <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              The problem each brand brought us, what we built, and what happened next — projects across Kuwait.
+            </p>
           </div>
         </Container>
       </section>
 
-      {/* Portfolio Accordion — Zelta-style */}
-      <section className="pb-20 sm:pb-28 bg-background">
+      {/* 3D Perspective Card Grid */}
+      <section className="relative overflow-hidden pb-10 sm:pb-16 bg-background" style={{ perspective: "1200px" }}>
+        <div ref={planeRef} className="origin-center" style={{ transformStyle: "preserve-3d" }}>
+          {/* Row 1 — reversed */}
+          <div ref={row1Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] justify-end pr-0 sm:pr-20">
+            {row1.map((project) => (
+              <CaseCard key={project.id} project={project} />
+            ))}
+          </div>
+
+          {/* Row 2 — normal */}
+          <div ref={row2Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] pl-0 sm:pl-20">
+            {row2.map((project) => (
+              <CaseCard key={project.id} project={project} />
+            ))}
+          </div>
+
+          {/* Row 3 — reversed */}
+          <div ref={row3Ref} className="flex gap-5 sm:gap-[70px] pr-0 sm:pr-20">
+            {row3.map((project) => (
+              <CaseCard key={project.id} project={project} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Mobile: stacked cards for the rest */}
+      <section className="lg:hidden pb-16 sm:pb-20 bg-background">
         <Container>
-          {/* Mobile: stacked tap-to-expand, second tap opens site */}
-          <div className="lg:hidden flex flex-col gap-3">
-            {projects.map((project, index) => {
-              const isActive = activePanel === index
-              return (
-                <div
-                  key={project.id}
-                  className="relative rounded-xl overflow-hidden cursor-pointer"
-                  style={{ height: isActive ? "280px" : "64px", transition: "height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)" }}
-                  onClick={() => {
-                    if (isActive) {
-                      window.open(project.url, "_blank", "noopener,noreferrer")
-                    } else {
-                      setActivePanel(index)
-                    }
-                  }}
-                >
+          <div className="flex flex-col gap-4">
+            {projects.map((project) => (
+              <a
+                key={project.id}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block overflow-hidden rounded-[18px] no-underline"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src={project.image}
-                    alt={`${project.title} - ${project.category} by WebStudioKW in Kuwait`}
+                    alt={`${project.title} - ${project.category} by ${SITE.brand} in Kuwait`}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                     sizes="100vw"
                   />
-                  <div className="absolute inset-0 bg-black/50" style={{ opacity: isActive ? 0.3 : 0.6, transition: "opacity 0.5s ease" }} />
-                  <div className={cn("absolute bottom-0 left-0 right-0 bg-gradient-to-r h-1", project.gradient)} />
-
-                  <div className="absolute bottom-4 left-4 z-10">
-                    <h3 className="font-heading font-medium text-white text-sm truncate">{project.title}</h3>
-                  </div>
-
-                  <div
-                    className="absolute inset-0 flex items-center p-5 z-10"
-                    style={{
-                      opacity: isActive ? 1 : 0,
-                      transform: isActive ? "translateY(0)" : "translateY(20px)",
-                      transition: "all 0.4s ease",
-                      pointerEvents: isActive ? "auto" : "none",
-                    }}
-                  >
-                    <div className="max-w-md">
-                      <span className={cn("inline-block text-xs font-medium uppercase tracking-wider px-3 py-1 rounded-full mb-3 bg-gradient-to-r shadow-lg text-white", project.gradient)}>
-                        {project.category}
-                      </span>
-                      <h3 className="font-heading text-xl font-medium text-white mb-2">{project.title}</h3>
-                      <p className="text-sm text-white/70 mb-3">{project.description}</p>
-                      <div className="w-10 h-0.5 bg-white mb-3" />
-                      <span className="inline-flex items-center gap-2 text-xs text-white/90 hover:text-white transition-colors">
-                        Visit site <ArrowUpRight className="h-3.5 w-3.5" />
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Desktop: hover to expand, click opens site */}
-          <div className="relative w-full hidden lg:flex flex-row gap-2 h-[80vh]">
-            {projects.map((project, index) => {
-              const isActive = activePanel === index
-              return (
-                <a
-                  key={project.id}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onMouseEnter={() => setActivePanel(index)}
-                  className={cn(
-                    "relative rounded-xl overflow-hidden cursor-pointer block lg:h-full outline-none focus-visible:ring-2 focus-visible:ring-primary no-underline",
-                    isActive ? "lg:flex-[5]" : "lg:flex-[1]"
-                  )}
-                  style={{ transition: "all 0.7s cubic-bezier(0.25, 0.1, 0.25, 1)" }}
-                >
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} - ${project.category} by WebStudioKW in Kuwait`}
-                    fill
-                    className="object-cover"
-                    style={{
-                      transform: isActive ? "scale(1)" : "scale(1.1)",
-                      transition: "transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1)",
-                    }}
-                    sizes="20vw"
-                  />
-                  <div className="absolute inset-0 bg-black/50" style={{ opacity: isActive ? 0.3 : 0.6, transition: "opacity 0.5s ease" }} />
-                  <div className={cn("absolute bottom-0 left-0 right-0 bg-gradient-to-r h-1", project.gradient)} style={{ transition: "all 0.5s ease" }} />
-
-                  <div className="absolute bottom-8 left-8 z-10">
-                    <h3 className={cn("font-heading font-medium text-white truncate", isActive ? "text-2xl xl:text-3xl whitespace-nowrap" : "text-sm xl:text-base")}>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[rgba(8,8,11,0.88)] via-[rgba(8,8,11,0.2)] to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                    <span className="text-[11px] font-medium uppercase tracking-wider text-primary">
+                      {project.category}
+                    </span>
+                    <h3 className="font-heading text-lg font-semibold text-white">
                       {project.title}
                     </h3>
+                    <span className="inline-flex items-center gap-1.5 text-xs text-[#e0b89e] mt-1">
+                      Visit site <ArrowUpRight className="h-3.5 w-3.5" />
+                    </span>
                   </div>
-
-                  <div
-                    className="absolute inset-0 flex items-center p-12 xl:p-16"
-                    style={{
-                      opacity: isActive ? 1 : 0,
-                      transform: isActive ? "translateY(0)" : "translateY(30px)",
-                      transition: "all 0.5s ease",
-                      pointerEvents: isActive ? "auto" : "none",
-                    }}
-                  >
-                    <div className="max-w-md">
-                      <span className={cn("inline-block text-sm font-medium uppercase tracking-wider px-4 py-1.5 rounded-full mb-4 bg-gradient-to-r shadow-lg text-white", project.gradient)}>
-                        {project.category}
-                      </span>
-                      <h3 className="font-heading text-3xl xl:text-4xl font-medium text-white mb-4">{project.title}</h3>
-                      <p className="text-base text-white/70 mb-4">{project.description}</p>
-                      <div className="w-12 h-0.5 bg-white mb-4" />
-                      <span className="inline-flex items-center gap-2 text-base text-white/90 hover:text-white transition-colors">
-                        Visit site <ArrowUpRight className="h-4 w-4" />
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              )
-            })}
+                </div>
+              </a>
+            ))}
           </div>
+        </Container>
+      </section>
 
-          {/* CTA */}
-          <div className="mt-16 rounded-2xl border border-border/30 bg-card p-8 sm:p-12 text-center">
-            <h2 className="mb-4 font-heading text-2xl font-bold text-foreground">Want a Website Like These?</h2>
-            <p className="mb-6 text-muted-foreground">Let&apos;s discuss your project and create something amazing.</p>
-            <WhatsAppButton size="lg">Start Your Project</WhatsAppButton>
+      {/* CTA Section */}
+      <section className="py-20 sm:py-28 bg-background">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto">
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">Work with us</p>
+            <h2
+              ref={ctaTitleRef}
+              className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold leading-tight text-foreground"
+              style={{ perspective: "400px" }}
+            >
+              <span className="cta-word inline-block mr-[0.3em]">We</span>
+              <span className="cta-word inline-block mr-[0.3em]">would</span>
+              <span className="cta-word inline-block mr-[0.3em]">love</span>
+              <span className="cta-word inline-block mr-[0.3em]">to</span>
+              <span className="cta-word inline-block mr-[0.3em]">hear</span>
+              <span className="cta-word inline-block mr-[0.3em]">more</span>
+              <br className="hidden sm:block" />
+              <span className="cta-word inline-block mr-[0.3em]">about</span>
+              <span className="cta-word inline-block mr-[0.3em]">your</span>
+              <span className="cta-word inline-block">project</span>
+            </h2>
+            <div ref={ctaBtnRef} className="mt-8">
+              <WhatsAppButton size="lg">
+                Let&apos;s talk to us <ArrowUpRight className="ml-1.5 h-4 w-4" />
+              </WhatsAppButton>
+            </div>
           </div>
         </Container>
       </section>
     </>
+  )
+}
+
+function CaseCard({ project }: { project: (typeof projects)[number] }) {
+  return (
+    <a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative block shrink-0 w-[300px] sm:w-[480px] h-[240px] sm:h-[384px] rounded-[18px] overflow-hidden no-underline"
+      style={{ background: "rgb(19, 17, 20)" }}
+    >
+      {/* Image */}
+      <Image
+        src={project.image}
+        alt={`${project.title} - ${project.category} by ${SITE.brand} in Kuwait`}
+        fill
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+        sizes="(max-width: 640px) 300px, 480px"
+      />
+
+      {/* Gradient overlay */}
+      <div
+        className="absolute inset-0 pointer-events-none transition-opacity duration-350"
+        style={{
+          background: "linear-gradient(rgba(8,8,11,0) 45%, rgba(8,8,11,0.88) 100%)",
+          opacity: 0.8,
+        }}
+      />
+
+      {/* Meta */}
+      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-[22px] flex flex-col gap-1 z-10">
+        <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-primary">
+          {project.category}
+        </span>
+        <h3 className="font-heading text-sm sm:text-xl font-semibold text-white leading-tight">
+          {project.title}
+        </h3>
+        <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-[#e0b89e] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          Read the case study
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5">
+            <path d="M7 17 17 7M8 7h9v9" />
+          </svg>
+        </span>
+      </div>
+    </a>
   )
 }

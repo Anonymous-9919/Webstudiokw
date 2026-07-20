@@ -67,22 +67,15 @@ const projects = [
   },
 ]
 
-const row1 = [projects[0], projects[1]]
-const row2 = [projects[2], projects[3]]
-const row3 = [projects[4], projects[5]]
-const row1b = [projects[0], projects[1]]
-const row2b = [projects[2], projects[3]]
-const row3b = [projects[4], projects[5]]
+const row1 = projects.slice(0, 2)
+const row2 = projects.slice(2, 4)
+const row3 = projects.slice(4, 6)
 
 export default function PortfolioPage() {
   const planeRef = useRef<HTMLDivElement>(null)
-  const plane2Ref = useRef<HTMLDivElement>(null)
   const row1Ref = useRef<HTMLDivElement>(null)
   const row2Ref = useRef<HTMLDivElement>(null)
   const row3Ref = useRef<HTMLDivElement>(null)
-  const row4Ref = useRef<HTMLDivElement>(null)
-  const row5Ref = useRef<HTMLDivElement>(null)
-  const row6Ref = useRef<HTMLDivElement>(null)
   const ctaTitleRef = useRef<HTMLHeadingElement>(null)
   const ctaBtnRef = useRef<HTMLDivElement>(null)
 
@@ -156,81 +149,6 @@ export default function PortfolioPage() {
             ease: "none",
             scrollTrigger: {
               trigger: row3Ref.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.5,
-            },
-          }
-        )
-      }
-
-      // Second plane entrance
-      if (plane2Ref.current) {
-        gsap.fromTo(
-          plane2Ref.current,
-          {
-            y: -550,
-            rotateX: 15,
-            rotateZ: 20,
-            opacity: 0.2,
-          },
-          {
-            y: 380,
-            rotateX: 0,
-            rotateZ: 0,
-            opacity: 1,
-            ease: "none",
-            scrollTrigger: {
-              trigger: plane2Ref.current,
-              start: "top 90%",
-              end: "bottom 20%",
-              scrub: 0.5,
-            },
-          }
-        )
-      }
-
-      if (row4Ref.current) {
-        gsap.fromTo(
-          row4Ref.current,
-          { x: 200 },
-          {
-            x: -200,
-            ease: "none",
-            scrollTrigger: {
-              trigger: row4Ref.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.5,
-            },
-          }
-        )
-      }
-      if (row5Ref.current) {
-        gsap.fromTo(
-          row5Ref.current,
-          { x: -200 },
-          {
-            x: 200,
-            ease: "none",
-            scrollTrigger: {
-              trigger: row5Ref.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.5,
-            },
-          }
-        )
-      }
-      if (row6Ref.current) {
-        gsap.fromTo(
-          row6Ref.current,
-          { x: 200 },
-          {
-            x: -200,
-            ease: "none",
-            scrollTrigger: {
-              trigger: row6Ref.current,
               start: "top bottom",
               end: "bottom top",
               scrub: 0.5,
@@ -348,27 +266,6 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Second grid — repeated projects with "Visit live site" */}
-      <section className="relative pb-10 sm:pb-16" style={{ perspective: "1200px" }}>
-        <div ref={plane2Ref} className="origin-center" style={{ transformStyle: "preserve-3d" }}>
-          <div ref={row4Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] justify-end pr-0 sm:pr-20">
-            {row1b.map((project) => (
-              <SimpleCard key={`b-${project.id}`} project={project} />
-            ))}
-          </div>
-          <div ref={row5Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] pl-0 sm:pl-20">
-            {row2b.map((project) => (
-              <SimpleCard key={`b-${project.id}`} project={project} />
-            ))}
-          </div>
-          <div ref={row6Ref} className="flex gap-5 sm:gap-[70px] pl-0 sm:pl-20">
-            {row3b.map((project) => (
-              <SimpleCard key={`b-${project.id}`} project={project} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Mobile: stacked cards for the rest */}
       <section className="lg:hidden pb-16 sm:pb-20 bg-background">
         <Container>
@@ -478,47 +375,6 @@ function CaseCard({ project }: { project: (typeof projects)[number] }) {
         </h3>
         <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-[#e0b89e] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           Read the case study
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5">
-            <path d="M7 17 17 7M8 7h9v9" />
-          </svg>
-        </span>
-      </div>
-    </a>
-  )
-}
-
-function SimpleCard({ project }: { project: (typeof projects)[number] }) {
-  return (
-    <a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group relative block shrink-0 w-[300px] sm:w-[480px] h-[240px] sm:h-[384px] rounded-[18px] overflow-hidden no-underline"
-      style={{ background: "rgb(19, 17, 20)" }}
-    >
-      <Image
-        src={project.image}
-        alt={`${project.title} - ${project.category} by ${SITE.brand} in Kuwait`}
-        fill
-        className="object-cover transition-transform duration-700 group-hover:scale-105"
-        sizes="(max-width: 640px) 300px, 480px"
-      />
-      <div
-        className="absolute inset-0 pointer-events-none transition-opacity duration-350"
-        style={{
-          background: "linear-gradient(rgba(8,8,11,0) 45%, rgba(8,8,11,0.88) 100%)",
-          opacity: 0.8,
-        }}
-      />
-      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-[22px] flex flex-col gap-1 z-10">
-        <span className="text-[10px] sm:text-[11px] font-medium uppercase tracking-wider text-primary">
-          {project.category}
-        </span>
-        <h3 className="font-heading text-sm sm:text-xl font-semibold text-white leading-tight">
-          {project.title}
-        </h3>
-        <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-[#e0b89e] mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          Visit live site
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-3.5 w-3.5">
             <path d="M7 17 17 7M8 7h9v9" />
           </svg>

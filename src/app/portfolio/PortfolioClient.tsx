@@ -261,22 +261,22 @@ export default function PortfolioPage() {
       {/* 3D Perspective Card Grid — desktop only */}
       <section className="hidden lg:block relative overflow-hidden" style={{ perspective: "1200px", paddingBottom: "580px" }}>
         <div ref={planeRef} className="origin-center" style={{ transformStyle: "preserve-3d" }}>
-          {/* Row 1 */}
-          <div ref={row1Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px]">
+          {/* Row 1 — reversed */}
+          <div ref={row1Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] justify-end pr-0 sm:pr-20">
             {row1.map((project) => (
               <CaseCard key={project.id} project={project} />
             ))}
           </div>
 
-          {/* Row 2 */}
-          <div ref={row2Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px]">
+          {/* Row 2 — normal */}
+          <div ref={row2Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] pl-0 sm:pl-20">
             {row2.map((project) => (
               <CaseCard key={project.id} project={project} />
             ))}
           </div>
 
-          {/* Row 3 */}
-          <div ref={row3Ref} className="flex gap-5 sm:gap-[70px]">
+          {/* Row 3 — reversed */}
+          <div ref={row3Ref} className="flex gap-5 sm:gap-[70px] pr-0 sm:pr-20">
             {row3.map((project) => (
               <CaseCard key={project.id} project={project} />
             ))}

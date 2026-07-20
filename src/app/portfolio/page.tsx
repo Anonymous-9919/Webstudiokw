@@ -240,8 +240,8 @@ export default function PortfolioPage() {
         </Container>
       </section>
 
-      {/* 3D Perspective Card Grid */}
-      <section className="relative pb-10 sm:pb-16" style={{ perspective: "1200px" }}>
+      {/* 3D Perspective Card Grid — desktop only */}
+      <section className="hidden lg:block relative overflow-hidden" style={{ perspective: "1200px", paddingBottom: "580px" }}>
         <div ref={planeRef} className="origin-center" style={{ transformStyle: "preserve-3d" }}>
           {/* Row 1 — reversed */}
           <div ref={row1Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] justify-end pr-0 sm:pr-20">
@@ -305,8 +305,8 @@ export default function PortfolioPage() {
         </Container>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 sm:py-28 bg-background">
+      {/* CTA Section — separate from grid */}
+      <section className="relative py-20 sm:py-28 bg-background">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">Work with us</p>

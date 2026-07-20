@@ -37,19 +37,26 @@ export default function AboutPage() {
             ]),
             {
               "@context": "https://schema.org",
-              "@type": "Person",
-              name: SITE.founder,
-              url: SITE.url,
-              jobTitle: "Founder & Web Developer",
-              worksFor: {
-                "@type": "Organization",
-                name: SITE.brand,
+              "@type": "AboutPage",
+              name: "About WebStudioKW",
+              description: "Learn about WebStudioKW — a Kuwait-based web development agency founded by Osama Shah, building modern websites, ecommerce stores, and custom web apps for businesses across Kuwait.",
+              url: `${SITE.url}/about`,
+              mainEntity: {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                name: SITE.founder,
                 url: SITE.url,
-              },
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Kuwait City",
-                addressCountry: "KW",
+                jobTitle: "Founder & Web Developer",
+                worksFor: {
+                  "@type": "Organization",
+                  name: SITE.brand,
+                  url: SITE.url,
+                },
+                address: {
+                  "@type": "PostalAddress",
+                  addressLocality: "Kuwait City",
+                  addressCountry: "KW",
+                },
               },
             },
           ]),

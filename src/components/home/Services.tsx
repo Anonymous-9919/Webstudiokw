@@ -93,7 +93,7 @@ export function Services() {
                   <Image
                     key={service.number}
                     src={service.image}
-                    alt={service.title}
+                    alt={`Professional ${service.title.toLowerCase()} design showcase by WebStudioKW`}
                     fill
                     className={cn(
                       "object-cover transition-all duration-700",
@@ -134,21 +134,23 @@ export function Services() {
           <div className="lg:col-span-8">
             <div>
               {services.map((service, index) => (
-                <div
+                <button
                   key={service.number}
+                  type="button"
+                  aria-expanded={activeService === index}
+                  onClick={() => setActiveService(index)}
+                  onMouseEnter={() => setActiveService(index)}
                   className={cn(
-                    "group border-t border-border/30 transition-all duration-500 cursor-pointer",
+                    "group border-t border-border/30 transition-all duration-500 cursor-pointer w-full text-left bg-transparent p-0",
                     index === services.length - 1 && "border-b",
                     "py-6 sm:py-8"
                   )}
-                  onClick={() => setActiveService(index)}
-                  onMouseEnter={() => setActiveService(index)}
                 >
                   {/* Mobile image */}
                   <div className="lg:hidden relative h-40 sm:h-48 overflow-hidden rounded-lg mb-4">
                     <Image
                       src={service.image}
-                      alt={service.title}
+                      alt={`Professional ${service.title.toLowerCase()} design showcase by WebStudioKW`}
                       fill
                       className="object-cover"
                       sizes="100vw"
@@ -231,7 +233,7 @@ export function Services() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </button>
               ))}
             </div>
           </div>

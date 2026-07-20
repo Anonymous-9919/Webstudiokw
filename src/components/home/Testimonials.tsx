@@ -18,10 +18,11 @@ function GoogleIcon({ className }: { className?: string }) {
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-0.5">
+    <div className="flex gap-0.5" role="img" aria-label={`${rating} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
           <Star
             key={i}
+            aria-hidden="true"
             className={`h-4 w-4 ${i < rating ? "fill-yellow-400 text-yellow-400" : "text-black/15"}`}
           />
       ))}
@@ -57,9 +58,9 @@ export function Testimonials() {
                 4.9
               </span>
               <div className="flex flex-col gap-1">
-                <div className="flex gap-0.5">
+                <div className="flex gap-0.5" role="img" aria-label="4.9 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                    <Star key={i} aria-hidden="true" className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                   ))}
                 </div>
                 <p className="flex items-center gap-1.5 text-sm text-muted-foreground">

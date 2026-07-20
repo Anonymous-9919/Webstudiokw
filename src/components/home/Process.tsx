@@ -65,7 +65,7 @@ export function Process() {
                       <div className="relative aspect-video overflow-hidden rounded-xl border border-border/50 bg-card/50">
                         <Image
                           src={stepImages[step.title] || "/images/process-discovery.jpg"}
-                          alt={step.title}
+                          alt={`${step.title} phase — ${step.description}`}
                           fill
                           className="object-cover"
                           sizes="(max-width: 1024px) 100vw, 50vw"

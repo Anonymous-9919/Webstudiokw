@@ -30,10 +30,19 @@ export default function ContactPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(generateBreadcrumbSchema([
-            { name: "Home", url: SITE.url },
-            { name: "Contact", url: `${SITE.url}/contact` },
-          ])),
+          __html: JSON.stringify([
+            generateBreadcrumbSchema([
+              { name: "Home", url: SITE.url },
+              { name: "Contact", url: `${SITE.url}/contact` },
+            ]),
+            {
+              "@context": "https://schema.org",
+              "@type": "ContactPage",
+              name: "Contact WebStudioKW",
+              description: "Contact WebStudioKW for web development in Kuwait — get a free quote for your website, ecommerce store, or custom web app.",
+              url: `${SITE.url}/contact`,
+            },
+          ]),
         }}
       />
       {/* Hero — dark */}

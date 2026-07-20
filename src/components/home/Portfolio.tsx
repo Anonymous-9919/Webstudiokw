@@ -95,9 +95,10 @@ export function Portfolio() {
           {projects.map((project, index) => {
             const isActive = activePanel === index
             return (
-              <div
+              <button
                 key={project.id}
-                className="relative rounded-xl overflow-hidden cursor-pointer"
+                type="button"
+                className="relative rounded-xl overflow-hidden cursor-pointer w-full text-left bg-transparent p-0 border-0"
                 style={{ height: isActive ? "240px" : "64px", transition: "height 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)" }}
                 onClick={() => {
                   if (isActive) {
@@ -142,7 +143,7 @@ export function Portfolio() {
                     </span>
                   </div>
                 </div>
-              </div>
+              </button>
             )
           })}
         </div>

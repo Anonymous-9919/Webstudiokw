@@ -37,6 +37,9 @@ export function FAQ() {
                   onClick={() =>
                     setOpenIndex(openIndex === index ? null : index)
                   }
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-panel-${index}`}
+                  id={`faq-${index}`}
                   className="flex w-full items-center justify-between gap-4 py-5 sm:py-6 min-h-[56px] text-left hover:bg-white/[0.02] px-2 -mx-2 rounded-lg transition-colors duration-200"
                 >
                   <span
@@ -57,6 +60,9 @@ export function FAQ() {
                   />
                 </button>
                 <div
+                  id={`faq-panel-${index}`}
+                  role="region"
+                  aria-labelledby={`faq-${index}`}
                   className={cn(
                     "overflow-hidden transition-all duration-300 ease-in-out",
                     openIndex === index ? "max-h-96" : "max-h-0"

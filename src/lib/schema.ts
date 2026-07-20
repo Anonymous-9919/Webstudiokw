@@ -105,6 +105,14 @@ export function generateWebSiteSchema() {
       "@type": "Organization",
       name: SITE.brand,
     },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE.url}/?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   }
 }
 
@@ -122,22 +130,6 @@ export function generateFAQSchema(
         text: faq.answer,
       },
     })),
-  }
-}
-
-export function generateAggregateRatingSchema() {
-  return {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: SITE.brand,
-    url: SITE.url,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "3",
-      bestRating: "5",
-      worstRating: "1",
-    },
   }
 }
 

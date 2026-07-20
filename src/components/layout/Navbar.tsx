@@ -81,7 +81,7 @@ export function Navbar() {
         }`}
         style={{ background: "rgba(0,0,0,0)" }}
       >
-        <div className="flex items-center justify-between px-4 sm:px-6 h-16">
+        <nav aria-label="Main navigation" className="flex items-center justify-between px-4 sm:px-6 h-16">
           <Link href="/" className="font-heading font-bold text-lg tracking-tight text-white">
             WebStudioKW
           </Link>
@@ -113,12 +113,13 @@ export function Navbar() {
               </svg>
             </button>
           </div>
-        </div>
+        </nav>
       </header>
 
       {/* ===== DESKTOP: Left-side vertical sidebar ===== */}
       {/* Zelta-style: mix-blend-exclusion with transparent bg, white content → auto-inverts */}
-      <header
+      <nav
+        aria-label="Main navigation"
         className={`fixed top-0 left-0 z-[9991] h-screen w-[75px] hidden lg:flex flex-col items-center justify-between py-[50px] pb-5 mix-blend-exclusion border-r border-white/[0.07] ${
           open ? "opacity-0 invisible pointer-events-none" : "opacity-100 visible"
         }`}
@@ -172,7 +173,7 @@ export function Navbar() {
             </p>
           </a>
         </div>
-      </header>
+      </nav>
 
       {/* ===== FULLSCREEN OFFCANVAS MENU ===== */}
       <div
@@ -245,12 +246,13 @@ export function Navbar() {
 
           {/* Center — Main nav (order 1 on mobile, normal on desktop) */}
           <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-12 py-8 lg:py-0 order-1 lg:order-none">
-            <nav className="flex flex-col items-start gap-3 sm:gap-4">
+            <nav aria-label="Main menu" className="flex flex-col items-start gap-3 sm:gap-4">
               {NAV_LINKS.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
+                  aria-current={pathname === link.href ? "page" : undefined}
                   className={`font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium tracking-tight transition-colors ${
                     pathname === link.href
                       ? "text-white"

@@ -36,7 +36,7 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          <nav aria-label="Quick links" className="space-y-4">
             <h3 className="font-heading font-semibold">Quick Links</h3>
             <ul className="space-y-2">
               {NAV_LINKS.map((link) => (
@@ -50,10 +50,10 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* Services */}
-          <div className="space-y-4">
+          <nav aria-label="Services" className="space-y-4">
             <h3 className="font-heading font-semibold">Services</h3>
             <ul className="space-y-2">
               {SERVICES.map((service) => (
@@ -67,7 +67,7 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           {/* CTA */}
           <div className="space-y-4">

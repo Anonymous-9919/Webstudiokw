@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { SITE } from "@/lib/constants"
 import { FAQS } from "@/lib/constants"
-import { generateFAQSchema, generateAggregateRatingSchema } from "@/lib/schema"
+import { generateFAQSchema } from "@/lib/schema"
 import { Hero } from "@/components/home/Hero"
 import { About } from "@/components/home/About"
 import { Services } from "@/components/home/Services"
@@ -97,10 +97,7 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            generateFAQSchema(FAQS),
-            generateAggregateRatingSchema(),
-          ]),
+          __html: JSON.stringify(generateFAQSchema(FAQS)),
         }}
       />
     </>

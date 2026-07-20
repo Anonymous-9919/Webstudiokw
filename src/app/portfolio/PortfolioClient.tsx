@@ -294,9 +294,9 @@ export default function PortfolioPage() {
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">
               {SITE.brand} &middot; Portfolio
             </p>
-            <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[0.95]">
+            <h2 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[0.95]">
               Case <span className="text-primary">Studies</span>
-            </h1>
+            </h2>
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
               The problem each brand brought us, what we built, and what happened next — projects across Kuwait.
             </p>

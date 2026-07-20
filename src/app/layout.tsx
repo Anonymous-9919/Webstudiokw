@@ -100,6 +100,8 @@ export default function RootLayout({
         <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
         <meta name="referrer" content="no-referrer" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -112,6 +114,12 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-background text-foreground antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-medium"
+        >
+          Skip to content
+        </a>
         <SecurityGuard />
         <PullToRefresh />
         {/* Header OUTSIDE smooth-scroll — like Zelta. mix-blend-mode needs to blend with viewport content */}
@@ -119,7 +127,7 @@ export default function RootLayout({
 
         {/* Smooth scroll wrapper — only wraps the scrollable content */}
         <SmoothScroll>
-          <main>{children}</main>
+          <main id="main-content">{children}</main>
           <Footer />
         </SmoothScroll>
 

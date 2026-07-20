@@ -259,3 +259,11 @@ html {
     background-color: transparent;
   }
 }
+
+/* Skip to content - visible only on focus */
+.skip-to-content {
+  @apply sr-only;
+}
+.skip-to-content:focus {
+  @apply not-sr-only fixed top-4 left-4 z-[9999] bg-primary text-white px-4 py-2 rounded-lg font-medium text-sm;
+}

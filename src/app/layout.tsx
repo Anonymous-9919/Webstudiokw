@@ -100,6 +100,7 @@ export default function RootLayout({
         <meta httpEquiv="X-Frame-Options" content="DENY" />
         <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
         <meta name="referrer" content="no-referrer" />
+        <meta name="google-site-verification" content="FyIcdMnakPu3pJTo-4cvESOcmFDo0IabVnF1fSx2Ldc" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <script

@@ -1,8 +1,9 @@
 import Link from "next/link"
+import Image from "next/image"
 import { NAV_LINKS, SITE, SERVICES } from "@/lib/constants"
 import { Container } from "@/components/shared/Container"
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton"
-import { Zap, MessageCircle, MapPin } from "lucide-react"
+import { MessageCircle, MapPin } from "lucide-react"
 
 export function Footer() {
   return (
@@ -11,9 +12,9 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="space-y-4">
-            <Link href="/" className="flex items-center gap-2 font-bold text-xl">
-              <Zap className="h-6 w-6 fill-primary text-primary" aria-hidden="true" />
-              <span className="font-heading">{SITE.brand}</span>
+            <Link href="/" className="flex items-center gap-3">
+              <Image src="/logo.png" alt="" width={160} height={32} className="h-6 w-auto" aria-hidden="true" />
+              <span className="font-heading font-bold text-xl">{SITE.brand}</span>
             </Link>
             <p className="text-sm leading-relaxed text-muted-foreground">
               {SITE.tagline}

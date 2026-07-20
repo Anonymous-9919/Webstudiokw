@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { NAV_LINKS, SITE } from "@/lib/constants"
 import { X, Phone } from "lucide-react"
@@ -82,8 +83,9 @@ export function Navbar() {
         style={{ background: "rgba(0,0,0,0)" }}
       >
         <nav aria-label="Main navigation" className="flex items-center justify-between px-4 sm:px-6 h-16">
-          <Link href="/" className="font-heading font-bold text-lg tracking-tight text-white">
-            WebStudioKW
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo.png" alt="" width={160} height={32} className="h-6 w-auto" priority aria-hidden="true" />
+            <span className="font-heading font-bold text-lg tracking-tight text-white leading-none">WebStudioKW</span>
           </Link>
 
           <div className="flex items-center gap-3">
@@ -128,10 +130,15 @@ export function Navbar() {
         {/* Top: Logo vertical */}
         <Link
           href="/"
-          className="font-heading font-bold text-sm tracking-tight text-white"
-          style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
+          className="flex flex-col items-center gap-2"
         >
-          WebStudioKW
+          <span
+            className="font-heading font-bold text-sm tracking-tight text-white"
+            style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
+          >
+            WebStudioKW
+          </span>
+          <Image src="/logo.png" alt="" width={40} height={80} className="w-8 h-auto" priority aria-hidden="true" />
         </Link>
 
         {/* Middle: Menu icon */}
@@ -198,9 +205,10 @@ export function Navbar() {
             <Link
               href="/"
               onClick={() => setOpen(false)}
-              className="font-heading font-bold text-2xl text-white text-left"
+              className="flex items-center gap-3"
             >
-              WebStudioKW
+              <Image src="/logo.png" alt="" width={200} height={40} className="h-8 w-auto" aria-hidden="true" />
+              <span className="font-heading font-bold text-2xl text-white text-left leading-none">WebStudioKW</span>
             </Link>
 
             <div>

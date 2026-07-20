@@ -234,10 +234,10 @@ export default function PortfolioPage() {
         }}
       />
 
-      {/* Hero */}
-      <section className="pt-20 sm:pt-28 pb-12 sm:pb-16">
+      {/* Hero + Grid — same section so cards animate over the text like Zelta */}
+      <section className="hidden lg:block relative overflow-hidden pt-20 sm:pt-28 pb-12 sm:pb-16" style={{ perspective: "1200px", paddingBottom: "580px" }}>
         <Container>
-          <div className="max-w-3xl text-left">
+          <div className="max-w-3xl text-left relative z-10">
             <Link
               href="/"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
@@ -256,10 +256,6 @@ export default function PortfolioPage() {
             </p>
           </div>
         </Container>
-      </section>
-
-      {/* 3D Perspective Card Grid — desktop only */}
-      <section className="hidden lg:block relative overflow-hidden" style={{ perspective: "1200px", paddingBottom: "580px" }}>
         <div ref={planeRef} className="origin-center" style={{ transformStyle: "preserve-3d" }}>
           {/* Row 1 — reversed */}
           <div ref={row1Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] justify-end pr-0 sm:pr-20">
@@ -282,6 +278,30 @@ export default function PortfolioPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Mobile hero */}
+      <section className="lg:hidden pt-20 sm:pt-28 pb-12 sm:pb-16">
+        <Container>
+          <div className="max-w-3xl text-left">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to home
+            </Link>
+            <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">
+              {SITE.brand} &middot; Portfolio
+            </p>
+            <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground leading-[0.95]">
+              Case <span className="text-primary">Studies</span>
+            </h1>
+            <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+              The problem each brand brought us, what we built, and what happened next — projects across Kuwait.
+            </p>
+          </div>
+        </Container>
       </section>
 
       {/* Mobile: stacked cards for the rest */}

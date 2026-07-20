@@ -132,13 +132,13 @@ export function Navbar() {
           href="/"
           className="flex flex-col items-center gap-2"
         >
+          <Image src="/logo.png" alt="" width={40} height={80} className="w-8 h-auto" priority aria-hidden="true" />
           <span
             className="font-heading font-bold text-sm tracking-tight text-white"
-            style={{ writingMode: "vertical-rl", textOrientation: "mixed" }}
+            style={{ writingMode: "vertical-lr", textOrientation: "mixed", transform: "rotate(180deg)" }}
           >
             WebStudioKW
           </span>
-          <Image src="/logo.png" alt="" width={40} height={80} className="w-8 h-auto" priority aria-hidden="true" />
         </Link>
 
         {/* Middle: Menu icon */}

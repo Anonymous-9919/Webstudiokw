@@ -39,6 +39,12 @@ yarn-error.log*
 # reference data
 .firecrawl
 
+# playwright
+.playwright-mcp
+
+# pnpm
+pnpm-workspace.yaml
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -1,0 +1,186 @@
+- main [ref=e3]:
+  - main [ref=e4]:
+    - generic: Drag
+    - generic:
+      - link "Chat On WhatsApp With Us":
+        - /url: https://api.whatsapp.com/send/?phone=%2B971545655008&text&app_absent=0
+        - img "Chat On WhatsApp With Us" [ref=e7] [cursor=pointer]
+    - generic [ref=e9]:
+      - link [ref=e11] [cursor=pointer]:
+        - /url: /
+        - img "Site Logo" [ref=e12]
+      - button [ref=e14] [cursor=pointer]:
+        - img "Menubar Icon" [ref=e15]
+      - paragraph [ref=e17]:
+        - text: Call Us Now
+        - link "054 56 55 008" [ref=e18] [cursor=pointer]:
+          - /url: tel:+971545655008
+    - generic [ref=e20]:
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - paragraph [ref=e23]: Rated 4.9★ on Google
+          - heading "Case Studies" [level=1] [ref=e24]
+          - paragraph [ref=e25]: The problem each brand brought us, what we built, and what happened next — 100+ projects across the UAE & Oman.
+        - generic [ref=e26]:
+          - generic [ref=e27]:
+            - button "Boncafé Middle East" [ref=e29] [cursor=pointer]:
+              - img "Boncafé Middle East" [ref=e30]
+              - generic:
+                - generic: Shopify · E-Commerce
+                - generic: Boncafé Middle East
+                - generic: Read the case study
+            - button "Al Faris Group" [ref=e32] [cursor=pointer]:
+              - img "Al Faris Group" [ref=e33]
+              - generic:
+                - generic: Corporate Website
+                - generic: Al Faris Group
+                - generic: Read the case study
+            - button "New National Medical Centre" [ref=e35] [cursor=pointer]:
+              - img "New National Medical Centre" [ref=e36]
+              - generic:
+                - generic: Healthcare Website
+                - generic: New National Medical Centre
+                - generic: Read the case study
+            - button "OEL Group" [ref=e38] [cursor=pointer]:
+              - img "OEL Group" [ref=e39]
+              - generic:
+                - generic: Engineering Website
+                - generic: OEL Group
+                - generic: Read the case study
+          - generic [ref=e40]:
+            - button "Golf Oman" [ref=e42] [cursor=pointer]:
+              - img "Golf Oman" [ref=e43]
+              - generic:
+                - generic: Sports & Tourism
+                - generic: Golf Oman
+                - generic: Read the case study
+            - button "Sharjah Wanderers" [ref=e45] [cursor=pointer]:
+              - img "Sharjah Wanderers" [ref=e46]
+              - generic:
+                - generic: Sports Club Website
+                - generic: Sharjah Wanderers
+                - generic: Read the case study
+            - link "Al Faris — News & Insights" [ref=e48] [cursor=pointer]:
+              - /url: https://www.alfarisgroup.com/
+              - img "Al Faris — News & Insights" [ref=e49]
+              - generic:
+                - generic: Corporate Website
+                - generic: Al Faris — News & Insights
+                - generic: Visit live site
+            - link "OEL — Regional Presence" [ref=e51] [cursor=pointer]:
+              - /url: https://www.oel-group.com/
+              - img "OEL — Regional Presence" [ref=e52]
+              - generic:
+                - generic: Engineering Website
+                - generic: OEL — Regional Presence
+                - generic: Visit live site
+          - generic [ref=e53]:
+            - link "Boncafé — Online Store" [ref=e55] [cursor=pointer]:
+              - /url: https://www.boncafeme.ae/
+              - img "Boncafé — Online Store" [ref=e56]
+              - generic:
+                - generic: Shopify · E-Commerce
+                - generic: Boncafé — Online Store
+                - generic: Visit live site
+            - link "Al Faris — Mobile Experience" [ref=e58] [cursor=pointer]:
+              - /url: https://www.alfarisgroup.com/
+              - img "Al Faris — Mobile Experience" [ref=e59]
+              - generic:
+                - generic: Corporate Website
+                - generic: Al Faris — Mobile Experience
+                - generic: Visit live site
+            - link "OEL — Mobile Experience" [ref=e61] [cursor=pointer]:
+              - /url: https://www.oel-group.com/
+              - img "OEL — Mobile Experience" [ref=e62]
+              - generic:
+                - generic: Engineering Website
+                - generic: OEL — Mobile Experience
+                - generic: Visit live site
+            - link "Boncafé — Product Catalogue" [ref=e64] [cursor=pointer]:
+              - /url: https://www.boncafeme.ae/
+              - img "Boncafé — Product Catalogue" [ref=e65]
+              - generic:
+                - generic: Shopify · E-Commerce
+                - generic: Boncafé — Product Catalogue
+                - generic: Visit live site
+      - generic [ref=e71]:
+        - paragraph [ref=e72]: Work with us
+        - heading "We would love to hear more about your project" [level=3] [ref=e73]
+        - link "Let's talk to us" [ref=e75] [cursor=pointer]:
+          - /url: /contact
+      - generic [ref=e78]:
+        - img "Footer Image" [ref=e80]
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - img "Footer Logo" [ref=e87]
+            - paragraph [ref=e88]: Crafting powerful online experiences and strategies that drive business growth, innovation, and lasting success.
+            - list [ref=e89]:
+              - listitem [ref=e90]:
+                - link [ref=e91] [cursor=pointer]:
+                  - /url: https://www.facebook.com/zeltamedia
+              - listitem [ref=e94]:
+                - link [ref=e95] [cursor=pointer]:
+                  - /url: https://twitter.com/zeltamedia
+              - listitem [ref=e98]:
+                - link [ref=e99] [cursor=pointer]:
+                  - /url: https://www.instagram.com/zeltamedia/
+              - listitem [ref=e102]:
+                - link [ref=e103] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/zelta-media
+              - listitem [ref=e106]:
+                - link [ref=e107] [cursor=pointer]:
+                  - /url: https://www.snapchat.com/add/zeltamedia
+          - generic [ref=e110]:
+            - heading "Quick Links" [level=2] [ref=e111]
+            - list [ref=e112]:
+              - listitem [ref=e113]:
+                - link "Our Story" [ref=e114] [cursor=pointer]:
+                  - /url: /digital-marketing-company-dubai
+              - listitem [ref=e115]:
+                - link "Case Study" [ref=e116] [cursor=pointer]:
+                  - /url: /case-study
+            - link [ref=e117] [cursor=pointer]:
+              - /url: /digital-marketing-services-dubai
+              - heading "What We Do" [level=2] [ref=e118]
+            - list [ref=e119]:
+              - listitem [ref=e120]:
+                - link "Branding" [ref=e121] [cursor=pointer]:
+                  - /url: /branding-agency-in-dubai
+              - listitem [ref=e122]:
+                - link "Web Development Dubai" [ref=e123] [cursor=pointer]:
+                  - /url: /web-development-company-in-dubai
+              - listitem [ref=e124]:
+                - link "Web Designing Dubai" [ref=e125] [cursor=pointer]:
+                  - /url: /best-web-design-company-in-dubai
+              - listitem [ref=e126]:
+                - link "SEO Agency Dubai" [ref=e127] [cursor=pointer]:
+                  - /url: /best-seo-agency-in-dubai
+              - listitem [ref=e128]:
+                - link "Search Engine Marketing" [ref=e129] [cursor=pointer]:
+                  - /url: /search-engine-marketing-agency
+              - listitem [ref=e130]:
+                - link "Social Media Marketing" [ref=e131] [cursor=pointer]:
+                  - /url: /social-media-marketing-dubai
+          - generic [ref=e132]:
+            - heading "Contact Us" [level=2] [ref=e133]
+            - list [ref=e134]:
+              - listitem [ref=e135]: UAE
+              - listitem [ref=e136]: In5 Design Building, D3 – Dubai
+              - listitem [ref=e137]:
+                - link "+971 54 56 55 008" [ref=e138] [cursor=pointer]:
+                  - /url: tel:+971545655008
+              - listitem [ref=e139]: Oman
+              - listitem [ref=e140]: Building No. 559, Flat no.27, P.O. BOX 204, Al khoudh, Sultanate of Oman
+              - listitem [ref=e141]:
+                - link "+968 7759 1521" [ref=e142] [cursor=pointer]:
+                  - /url: tel:+96877591521
+              - listitem [ref=e143]:
+                - link "hello@zeltamedia.com" [ref=e144] [cursor=pointer]:
+                  - /url: mailto:hello@zeltamedia.com
+          - generic [ref=e145]:
+            - heading "Have a project in your mind?" [level=2] [ref=e146]
+            - link "contact us" [ref=e148] [cursor=pointer]:
+              - /url: /contact
+            - 'heading "09 : 00 AM - 6 : 00 PM" [level=3] [ref=e151]'
+            - heading "Monday - Friday" [level=4] [ref=e152]
+          - paragraph [ref=e154]: © 2026 | Alrights reserved by Zelta Design Services LLC

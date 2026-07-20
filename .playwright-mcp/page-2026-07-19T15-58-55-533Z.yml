@@ -1,0 +1,216 @@
+- generic [active] [ref=f1e1]:
+  - generic:
+    - main:
+      - main:
+        - generic: Drag
+        - generic:
+          - link "Chat On WhatsApp With Us":
+            - /url: https://api.whatsapp.com/send/?phone=%2B971545655008&text&app_absent=0
+            - img "Chat On WhatsApp With Us" [ref=f1e2] [cursor=pointer]
+        - generic [ref=f1e4]:
+          - link [ref=f1e6] [cursor=pointer]:
+            - /url: /
+            - img "Site Logo" [ref=f1e7]
+          - button [ref=f1e9] [cursor=pointer]:
+            - img "Menubar Icon" [ref=f1e10]
+          - paragraph [ref=f1e12]:
+            - text: Call Us Now
+            - link "054 56 55 008" [ref=f1e13] [cursor=pointer]:
+              - /url: tel:+971545655008
+        - generic:
+          - generic:
+            - generic:
+              - generic:
+                - paragraph: Rated 4.9★ on Google
+                - heading "Case Studies" [level=1]
+                - paragraph: The problem each brand brought us, what we built, and what happened next — 100+ projects across the UAE & Oman.
+              - generic:
+                - generic:
+                  - generic:
+                    - button "Boncafé Middle East":
+                      - img "Boncafé Middle East"
+                      - generic:
+                        - generic: Shopify · E-Commerce
+                        - generic: Boncafé Middle East
+                        - generic: Read the case study
+                  - generic:
+                    - button "Al Faris Group":
+                      - img "Al Faris Group"
+                      - generic:
+                        - generic: Corporate Website
+                        - generic: Al Faris Group
+                        - generic: Read the case study
+                  - generic:
+                    - button "New National Medical Centre":
+                      - img "New National Medical Centre"
+                      - generic:
+                        - generic: Healthcare Website
+                        - generic: New National Medical Centre
+                        - generic: Read the case study
+                  - generic:
+                    - button "OEL Group":
+                      - img "OEL Group"
+                      - generic:
+                        - generic: Engineering Website
+                        - generic: OEL Group
+                        - generic: Read the case study
+                - generic:
+                  - generic:
+                    - button "Golf Oman":
+                      - img "Golf Oman"
+                      - generic:
+                        - generic: Sports & Tourism
+                        - generic: Golf Oman
+                        - generic: Read the case study
+                  - generic:
+                    - button "Sharjah Wanderers":
+                      - img "Sharjah Wanderers"
+                      - generic:
+                        - generic: Sports Club Website
+                        - generic: Sharjah Wanderers
+                        - generic: Read the case study
+                  - generic:
+                    - link "Al Faris — News & Insights":
+                      - /url: https://www.alfarisgroup.com/
+                      - img "Al Faris — News & Insights"
+                      - generic:
+                        - generic: Corporate Website
+                        - generic: Al Faris — News & Insights
+                        - generic: Visit live site
+                  - generic:
+                    - link "OEL — Regional Presence":
+                      - /url: https://www.oel-group.com/
+                      - img "OEL — Regional Presence"
+                      - generic:
+                        - generic: Engineering Website
+                        - generic: OEL — Regional Presence
+                        - generic: Visit live site
+                - generic:
+                  - generic:
+                    - link "Boncafé — Online Store":
+                      - /url: https://www.boncafeme.ae/
+                      - img "Boncafé — Online Store"
+                      - generic:
+                        - generic: Shopify · E-Commerce
+                        - generic: Boncafé — Online Store
+                        - generic: Visit live site
+                  - generic:
+                    - link "Al Faris — Mobile Experience":
+                      - /url: https://www.alfarisgroup.com/
+                      - img "Al Faris — Mobile Experience"
+                      - generic:
+                        - generic: Corporate Website
+                        - generic: Al Faris — Mobile Experience
+                        - generic: Visit live site
+                  - generic:
+                    - link "OEL — Mobile Experience":
+                      - /url: https://www.oel-group.com/
+                      - img "OEL — Mobile Experience"
+                      - generic:
+                        - generic: Engineering Website
+                        - generic: OEL — Mobile Experience
+                        - generic: Visit live site
+                  - generic:
+                    - link "Boncafé — Product Catalogue":
+                      - /url: https://www.boncafeme.ae/
+                      - img "Boncafé — Product Catalogue"
+                      - generic:
+                        - generic: Shopify · E-Commerce
+                        - generic: Boncafé — Product Catalogue
+                        - generic: Visit live site
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - paragraph: Work with us
+                      - heading "We would love to hear more about your project" [level=3]:
+                        - generic: We would love to hear more
+                        - generic: about your project
+                      - generic:
+                        - link "Let's talk to us":
+                          - /url: /contact
+            - generic:
+              - generic:
+                - img "Footer Image"
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img "Footer Logo"
+                          - paragraph: Crafting powerful online experiences and strategies that drive business growth, innovation, and lasting success.
+                          - list:
+                            - listitem:
+                              - link:
+                                - /url: https://www.facebook.com/zeltamedia
+                            - listitem:
+                              - link:
+                                - /url: https://twitter.com/zeltamedia
+                            - listitem:
+                              - link:
+                                - /url: https://www.instagram.com/zeltamedia/
+                            - listitem:
+                              - link:
+                                - /url: https://www.linkedin.com/company/zelta-media
+                            - listitem:
+                              - link:
+                                - /url: https://www.snapchat.com/add/zeltamedia
+                        - generic:
+                          - heading "Quick Links" [level=2]
+                          - list:
+                            - listitem:
+                              - link "Our Story":
+                                - /url: /digital-marketing-company-dubai
+                            - listitem:
+                              - link "Case Study":
+                                - /url: /case-study
+                          - link "What We Do":
+                            - /url: /digital-marketing-services-dubai
+                            - heading "What We Do" [level=2]
+                          - list:
+                            - listitem:
+                              - link "Branding":
+                                - /url: /branding-agency-in-dubai
+                            - listitem:
+                              - link "Web Development":
+                                - /url: /web-development-company-in-dubai
+                            - listitem:
+                              - link "Web Designing":
+                                - /url: /best-web-design-company-in-dubai
+                            - listitem:
+                              - link "SEO Agency":
+                                - /url: /best-seo-agency-in-dubai
+                            - listitem:
+                              - link "Search Engine Marketing":
+                                - /url: /search-engine-marketing-agency
+                            - listitem:
+                              - link "Social Media Marketing":
+                                - /url: /social-media-marketing-dubai
+                        - generic:
+                          - heading "Contact Us" [level=2]
+                          - list:
+                            - listitem: UAE
+                            - listitem: In5 Design Building, D3 – Dubai
+                            - listitem:
+                              - link "+971 54 56 55 008":
+                                - /url: tel:+971545655008
+                            - listitem: Oman
+                            - listitem: Building No. 559, Flat no.27, P.O. BOX 204, Al khoudh, Sultanate of Oman
+                            - listitem:
+                              - link "+968 7759 1521":
+                                - /url: tel:+96877591521
+                            - listitem:
+                              - link "hello@zeltamedia.com":
+                                - /url: mailto:hello@zeltamedia.com
+                        - generic:
+                          - heading "Have a project in your mind?" [level=2]
+                          - generic:
+                            - link "contact us":
+                              - /url: /contact
+                          - 'heading "09 : 00 AM - 6 : 00 PM" [level=3]'
+                          - heading "Monday - Friday" [level=4]
+                        - generic:
+                          - paragraph: © 2026 | Alrights reserved by Zelta Design Services LLC
+  - alert [ref=f1e14]

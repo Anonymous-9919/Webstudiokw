@@ -31,6 +31,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   alternates: {
     canonical: SITE.url,
+    languages: {
+      "en-US": SITE.url,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     type: "website",
@@ -44,7 +52,7 @@ export const metadata: Metadata = {
         url: `${SITE.url}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: SITE.brand,
+        alt: "WebStudioKW — web design and development agency in Kuwait building modern websites and ecommerce stores",
       },
     ],
   },
@@ -53,6 +61,7 @@ export const metadata: Metadata = {
     title: SITE.title,
     description: SITE.description,
     images: [`${SITE.url}/og-image.png`],
+    creator: "@webstudiokw",
   },
   robots: {
     index: true,

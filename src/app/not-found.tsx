@@ -3,6 +3,16 @@ import { Container } from "@/components/shared/Container"
 import { WhatsAppButton } from "@/components/shared/WhatsAppButton"
 import { Button } from "@/components/ui/button"
 import { Home } from "lucide-react"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Page Not Found | WebStudioKW",
+  description: "The page you're looking for doesn't exist or has been moved.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+}
 
 export default function NotFound() {
   return (

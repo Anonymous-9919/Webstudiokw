@@ -30,12 +30,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website", locale: "en_US", url: `${SITE.url}/services`, siteName: SITE.brand,
     title: "Web Development Services Kuwait | WebStudioKW",
-    description: "Professional web development services in Kuwait.",
-    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: SITE.brand }],
+    description: "Professional web development services in Kuwait — web design, ecommerce stores, custom web apps, SEO, and API integrations for businesses across Kuwait.",
+    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "WebStudioKW web development services — website design, ecommerce, and custom web apps in Kuwait" }],
   },
   twitter: {
     card: "summary_large_image", title: "Web Development Services Kuwait | WebStudioKW",
-    description: "Professional web development services in Kuwait.",
+    description: "Professional web development services in Kuwait — web design, ecommerce, custom web apps, SEO, and API integrations.",
     images: [`${SITE.url}/og-image.png`],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },

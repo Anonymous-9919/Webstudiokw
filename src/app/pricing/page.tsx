@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "Website Development Pricing in Kuwait | Affordable Web Design",
   description:
     "Website development pricing in Kuwait. Business websites from 150 KWD, ecommerce stores from 450 KWD, custom web apps from 750 KWD. No hidden costs.",
-  keywords: ["website pricing Kuwait", "web design packages Kuwait", "affordable website Kuwait", "ecommerce pricing Kuwait", "website cost Kuwait", "cheap website Kuwait"],
+  keywords: ["website pricing Kuwait", "web design packages Kuwait", "affordable website Kuwait", "ecommerce pricing Kuwait", "website cost Kuwait", "cheap website Kuwait", "web developer price Kuwait", "business website cost Kuwait", "custom web app pricing Kuwait", "Kuwait web design rates"],
   authors: [{ name: SITE.founder, url: SITE.url }],
   creator: SITE.founder, publisher: SITE.brand,
   metadataBase: new URL(SITE.url),
@@ -20,10 +20,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website", locale: "en_US", url: `${SITE.url}/pricing`, siteName: SITE.brand,
     title: "Website Development Pricing Kuwait | WebStudioKW",
-    description: "Affordable website development packages in Kuwait.",
-    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: SITE.brand }],
+    description: "Affordable website development packages in Kuwait — business sites from 150 KWD, ecommerce from 450 KWD, custom apps from 750 KWD.",
+    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "WebStudioKW website development pricing — affordable web design packages in Kuwait" }],
   },
-  twitter: { card: "summary_large_image", title: "Website Development Pricing Kuwait | WebStudioKW", description: "Affordable website development packages in Kuwait.", images: [`${SITE.url}/og-image.png`] },
+  twitter: { card: "summary_large_image", title: "Website Development Pricing Kuwait | WebStudioKW", description: "Affordable website development packages in Kuwait — business sites from 150 KWD, ecommerce from 450 KWD.", images: [`${SITE.url}/og-image.png`], creator: "@webstudiokw" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
 }
 
@@ -35,19 +35,43 @@ const PRICING_FAQS = [
 ] as const
 
 export default function PricingPage() {
+  const pricingSchema = [
+    generateFAQSchema(PRICING_FAQS),
+    generateBreadcrumbSchema([
+      { name: "Home", url: SITE.url },
+      { name: "Pricing", url: `${SITE.url}/pricing` },
+    ]),
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: "WebStudioKW Website Development Packages",
+      description: "Professional website development packages and pricing in Kuwait",
+      itemListElement: PACKAGES.map((pkg: (typeof PACKAGES)[number], i: number) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        item: {
+          "@type": "Product",
+          name: `${pkg.name} — WebStudioKW`,
+          description: pkg.description,
+          brand: { "@type": "Organization", name: SITE.brand },
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "KWD",
+            price: pkg.offerPrice,
+            availability: "https://schema.org/InStock",
+            url: `${SITE.url}/pricing`,
+            seller: { "@type": "Organization", name: SITE.brand },
+          },
+        },
+      })),
+    },
+  ]
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            generateFAQSchema(PRICING_FAQS),
-            generateBreadcrumbSchema([
-              { name: "Home", url: SITE.url },
-              { name: "Pricing", url: `${SITE.url}/pricing` },
-            ]),
-          ]),
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
       />
       {/* Hero — dark */}
       <section className="bg-background py-20 sm:py-28">

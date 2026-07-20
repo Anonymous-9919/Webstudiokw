@@ -78,6 +78,7 @@ export default function PortfolioPage() {
   const row3Ref = useRef<HTMLDivElement>(null)
   const ctaTitleRef = useRef<HTMLHeadingElement>(null)
   const ctaBtnRef = useRef<HTMLDivElement>(null)
+  const ctaSectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -199,6 +200,23 @@ export default function PortfolioPage() {
           }
         )
       }
+
+      if (ctaSectionRef.current) {
+        gsap.fromTo(
+          ctaSectionRef.current,
+          { y: 80 },
+          {
+            y: -80,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ctaSectionRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.5,
+            },
+          }
+        )
+      }
     })
 
     return () => ctx.revert()
@@ -217,7 +235,7 @@ export default function PortfolioPage() {
       />
 
       {/* Hero */}
-      <section className="bg-background pt-20 sm:pt-28 pb-12 sm:pb-16">
+      <section className="pt-20 sm:pt-28 pb-12 sm:pb-16">
         <Container>
           <div className="max-w-3xl text-left">
             <Link
@@ -306,7 +324,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section — separate from grid */}
-      <section className="relative py-20 sm:py-28 bg-background">
+      <section ref={ctaSectionRef} className="relative py-16 sm:py-24" style={{ background: "rgb(30, 30, 35)" }}>
         <Container>
           <div className="text-center max-w-3xl mx-auto">
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">Work with us</p>

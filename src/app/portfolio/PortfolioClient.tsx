@@ -261,22 +261,22 @@ export default function PortfolioPage() {
       {/* 3D Perspective Card Grid — desktop only */}
       <section className="hidden lg:block relative overflow-hidden" style={{ perspective: "1200px", paddingBottom: "580px" }}>
         <div ref={planeRef} className="origin-center" style={{ transformStyle: "preserve-3d" }}>
-          {/* Row 1 — reversed */}
-          <div ref={row1Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] justify-end pr-0 sm:pr-20">
+          {/* Row 1 */}
+          <div ref={row1Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px]">
             {row1.map((project) => (
               <CaseCard key={project.id} project={project} />
             ))}
           </div>
 
-          {/* Row 2 — normal */}
-          <div ref={row2Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] pl-0 sm:pl-20">
+          {/* Row 2 */}
+          <div ref={row2Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px]">
             {row2.map((project) => (
               <CaseCard key={project.id} project={project} />
             ))}
           </div>
 
-          {/* Row 3 — reversed */}
-          <div ref={row3Ref} className="flex gap-5 sm:gap-[70px] pr-0 sm:pr-20">
+          {/* Row 3 */}
+          <div ref={row3Ref} className="flex gap-5 sm:gap-[70px]">
             {row3.map((project) => (
               <CaseCard key={project.id} project={project} />
             ))}
@@ -324,7 +324,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* CTA Section — separate from grid */}
-      <section ref={ctaSectionRef} className="relative py-16 sm:py-24" style={{ background: "rgb(30, 30, 35)" }}>
+      <section ref={ctaSectionRef} className="section-alt relative py-16 sm:py-24">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
             <p className="mb-4 text-sm font-medium uppercase tracking-widest text-primary">Work with us</p>

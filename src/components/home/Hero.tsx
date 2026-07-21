@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react"
 
 export function Hero() {
   const [mounted, setMounted] = useState(false)
+  const [videoPlaying, setVideoPlaying] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -18,14 +19,23 @@ export function Hero() {
         loop
         muted
         playsInline
-        controlsList="nodownload noplaybackrate nofullscreen"
-        disablePictureInPicture
+        onPlay={() => setVideoPlaying(true)}
+        onPlaying={() => setVideoPlaying(true)}
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover"
-        poster="/images/hero-team.jpg"
       >
         <source src="/hero-video.mp4" type="video/mp4" />
       </video>
+
+      {/* Poster image — visible until video plays, hides native iOS play button */}
+      <img
+        src="/images/hero-team.jpg"
+        alt=""
+        aria-hidden="true"
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+          videoPlaying ? "opacity-0 pointer-events-none" : "opacity-100"
+        }`}
+      />
 
       {/* Dark Gradient Overlay */}
       <div className="absolute inset-0 bg-black/50" />
@@ -33,7 +43,7 @@ export function Hero() {
       {/* Content — centered heading */}
       <div className="absolute inset-0 z-[1] flex items-center justify-center text-center px-5 sm:px-8 lg:pl-[120px] xl:pl-[140px]">
         <h1
-          className={`font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-[0.95] tracking-tight transition-all duration-1000 delay-200 ${
+          className={`font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-[0.95] tracking-tight transition-[opacity,transform] duration-1000 delay-200 ${
             mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -48,7 +58,7 @@ export function Hero() {
       {/* Bottom-left corner — Strategy link */}
       <a
         href="#services"
-        className={`group absolute bottom-6 left-4 sm:bottom-10 sm:left-8 lg:left-[120px] xl:left-[140px] z-[2] inline-flex items-center gap-1 text-white border-b border-white/60 pb-1 text-[9px] sm:text-sm lg:text-lg font-normal leading-[1.4] transition-all duration-1000 delay-500 hover:border-white max-w-[45%] ${
+        className={`group absolute bottom-6 left-4 sm:bottom-10 sm:left-8 lg:left-[120px] xl:left-[140px] z-[2] inline-flex items-center gap-1 text-white border-b border-white/60 pb-1 text-[9px] sm:text-sm lg:text-lg font-normal leading-[1.4] transition-[opacity,transform] duration-1000 delay-500 hover:border-white max-w-[45%] ${
           mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         }`}
       >
@@ -58,7 +68,7 @@ export function Hero() {
 
       {/* Bottom-right corner — 250+ Projects */}
       <div
-        className={`absolute bottom-6 right-4 sm:bottom-10 sm:right-8 z-[2] flex items-center gap-1.5 sm:gap-4 transition-all duration-1000 delay-500 ${
+        className={`absolute bottom-6 right-4 sm:bottom-10 sm:right-8 z-[2] flex items-center gap-1.5 sm:gap-4 transition-[opacity,transform] duration-1000 delay-500 ${
           mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
         }`}
       >

@@ -224,14 +224,6 @@ html {
   }
 }
 
-/* Hide native WebKit play button overlay on videos (iOS Low Power Mode) */
-video::-webkit-media-controls-play-button {
-  display: none !important;
-}
-video::-webkit-media-controls-overlay-play-button {
-  display: none !important;
-}
-
 /* Mobile optimizations */
 @media (max-width: 768px) {
   body {

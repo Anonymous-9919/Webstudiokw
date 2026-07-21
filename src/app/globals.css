@@ -214,17 +214,22 @@ html {
   display: none;
 }
 
-/* Reduced motion */
+/* Reduced motion — kill all transitions & animations instantly */
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up,
-  .animate-fade-up-delay-1,
-  .animate-fade-up-delay-2,
-  .animate-fade-up-delay-3,
-  .animate-fade-in,
-  .animate-slide-in-left,
-  .blob {
-    animation: none;
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
   }
+}
+
+/* Hide native WebKit play button overlay on videos (iOS Low Power Mode) */
+video::-webkit-media-controls-play-button {
+  display: none !important;
+}
+video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
 }
 
 /* Mobile optimizations */

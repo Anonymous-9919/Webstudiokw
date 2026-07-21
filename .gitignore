@@ -50,3 +50,10 @@ pnpm-workspace.yaml
 next-env.d.ts
 
 .vercel
+
+# root-level design files (keep only public/ assets in git)
+/*.png
+/*.jpg
+/*.jpeg
+/*.svg
+/*.webp

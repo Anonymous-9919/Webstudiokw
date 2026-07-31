@@ -107,7 +107,7 @@ export function About() {
         </h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left — Zelta-style overlapping images */}
+          {/* Left Zelta-style overlapping images */}
           <div className="relative">
             <div ref={imgLeftRef} className="relative w-[75%] aspect-[4/5] overflow-hidden rounded-2xl">
               <Image
@@ -142,7 +142,7 @@ export function About() {
             />
           </div>
 
-          {/* Right — Text content */}
+          {/* Right Text content */}
           <div ref={textRef} className="flex flex-col gap-6">
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
               As a web development agency in Kuwait, we at
@@ -154,7 +154,7 @@ export function About() {
             <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">
               We work closely with each client to understand their goals and
               deliver a website that performs. From clinics and restaurants to
-              retail stores and service businesses — we build websites that
+              retail stores and service businesses, we build websites that
               help Kuwait businesses succeed online.
             </p>
             <div className="pt-4">

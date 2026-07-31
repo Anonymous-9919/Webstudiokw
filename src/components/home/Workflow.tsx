@@ -45,7 +45,7 @@ export function Workflow() {
               How we work
             </h2>
             <p className="mt-4 text-muted-foreground leading-relaxed text-sm sm:text-base max-w-xl">
-              Our streamlined process turns your vision into a high-performing digital product —
+              Our streamlined process turns your vision into a high-performing digital product,
               from initial research to launch and beyond.
             </p>
           </div>

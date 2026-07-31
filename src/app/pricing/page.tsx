@@ -20,10 +20,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website", locale: "en_US", url: `${SITE.url}/pricing`, siteName: SITE.brand,
     title: "Website Development Pricing Kuwait | WebStudioKW",
-    description: "Affordable website development packages in Kuwait — business sites from 150 KWD, ecommerce from 450 KWD, custom apps from 750 KWD.",
-    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "WebStudioKW website development pricing — affordable web design packages in Kuwait" }],
+    description: "Affordable website development packages in Kuwait. Business sites from 150 KWD, ecommerce from 450 KWD, custom apps from 750 KWD.",
+    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "WebStudioKW website development pricing: affordable web design packages in Kuwait" }],
   },
-  twitter: { card: "summary_large_image", title: "Website Development Pricing Kuwait | WebStudioKW", description: "Affordable website development packages in Kuwait — business sites from 150 KWD, ecommerce from 450 KWD.", images: [`${SITE.url}/og-image.png`], creator: "@webstudiokw" },
+  twitter: { card: "summary_large_image", title: "Website Development Pricing Kuwait | WebStudioKW", description: "Affordable website development packages in Kuwait. Business sites from 150 KWD, ecommerce from 450 KWD.", images: [`${SITE.url}/og-image.png`], creator: "@webstudiokw" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
 }
 
@@ -51,7 +51,7 @@ export default function PricingPage() {
         position: i + 1,
         item: {
           "@type": "Product",
-          name: `${pkg.name} — WebStudioKW`,
+          name: `${pkg.name}, WebStudioKW`,
           description: pkg.description,
           brand: { "@type": "Organization", name: SITE.brand },
           offers: {
@@ -73,7 +73,7 @@ export default function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(pricingSchema) }}
       />
-      {/* Hero — dark */}
+      {/* Hero dark */}
       <section className="bg-background py-20 sm:py-28">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
@@ -84,7 +84,7 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      {/* Pricing Cards — lighter section */}
+      {/* Pricing Cards lighter section */}
       <section className="py-20 sm:py-28 section-alt" id="packages">
         <div className="section-divider" aria-hidden="true" />
         <Container>
@@ -131,7 +131,7 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      {/* FAQ — dark */}
+      {/* FAQ dark */}
       <section className="py-20 sm:py-28 bg-background">
         <div className="section-divider" aria-hidden="true" />
         <Container>

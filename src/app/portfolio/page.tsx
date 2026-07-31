@@ -3,9 +3,9 @@ import { SITE } from "@/lib/constants"
 import PortfolioClient from "./PortfolioClient"
 
 export const metadata: Metadata = {
-  title: "Portfolio & Case Studies | WebStudioKW — Kuwait Web Projects",
+  title: "Portfolio & Case Studies | WebStudioKW | Kuwait Web Projects",
   description:
-    "See the websites, ecommerce stores, and web apps WebStudioKW built for businesses in Kuwait — from Al Batel to Al Hilal Clinic and more.",
+    "See the websites, ecommerce stores, and web apps WebStudioKW built for businesses in Kuwait, from Al Batel to Al Hilal Clinic and more.",
   keywords: [
     "Kuwait web design portfolio",
     "Kuwait web development case studies",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: `${SITE.url}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "WebStudioKW portfolio — web design and development projects in Kuwait",
+        alt: "WebStudioKW portfolio, web design and development projects in Kuwait",
       },
     ],
   },

@@ -18,7 +18,7 @@ export function WhyChooseUs() {
         <ScrollReveal>
           <SectionHeading
             title="Why Businesses Choose Us"
-            description="We're not just developers — we're your growth partners."
+            description="We're not just developers, we're your growth partners."
             align="center"
           />
         </ScrollReveal>

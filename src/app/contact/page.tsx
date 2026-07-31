@@ -8,7 +8,7 @@ import { MessageCircle, Phone, Mail, MapPin } from "lucide-react"
 import { FinalCTA } from "@/components/home/FinalCTA"
 
 export const metadata: Metadata = {
-  title: "Contact Us | WebStudioKW — Web Development Kuwait",
+  title: "Contact Us | WebStudioKW | Web Development Kuwait",
   description: "Contact WebStudioKW for web development in Kuwait. Get a free quote for your business website, ecommerce store, or custom web app. WhatsApp, phone, or email.",
   keywords: ["contact web developer Kuwait", "WebStudioKW contact", "website consultation Kuwait", "WhatsApp web developer Kuwait", "web design contact Kuwait", "free website quote Kuwait", "hire web developer Kuwait"],
   authors: [{ name: SITE.founder, url: SITE.url }],
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE.url}/contact`, languages: { "en": `${SITE.url}/contact` } },
   openGraph: {
     type: "website", locale: "en_US", url: `${SITE.url}/contact`, siteName: SITE.brand,
-    title: "Contact Us | WebStudioKW", description: "Contact WebStudioKW for professional website development in Kuwait — get a free quote for your website, ecommerce store, or web app project.",
-    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "Contact WebStudioKW — web design and development agency in Kuwait" }],
+    title: "Contact Us | WebStudioKW", description: "Contact WebStudioKW for professional website development in Kuwait. Get a free quote for your website, ecommerce store, or web app project.",
+    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "Contact WebStudioKW, web design and development agency in Kuwait" }],
   },
-  twitter: { card: "summary_large_image", title: "Contact Us | WebStudioKW", description: "Contact WebStudioKW for professional website development in Kuwait — get a free quote.", images: [`${SITE.url}/og-image.png`], creator: "@webstudiokw" },
+  twitter: { card: "summary_large_image", title: "Contact Us | WebStudioKW", description: "Contact WebStudioKW for professional website development in Kuwait. Get a free quote.", images: [`${SITE.url}/og-image.png`], creator: "@webstudiokw" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
 }
 
@@ -39,13 +39,13 @@ export default function ContactPage() {
               "@context": "https://schema.org",
               "@type": "ContactPage",
               name: "Contact WebStudioKW",
-              description: "Contact WebStudioKW for web development in Kuwait — get a free quote for your website, ecommerce store, or custom web app.",
+              description: "Contact WebStudioKW for web development in Kuwait. Get a free quote for your website, ecommerce store, or custom web app.",
               url: `${SITE.url}/contact`,
             },
           ]),
         }}
       />
-      {/* Hero — dark */}
+      {/* Hero dark */}
       <section className="bg-background py-20 sm:py-28">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
@@ -56,7 +56,7 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      {/* Contact Content — alt dark */}
+      {/* Contact Content alt dark */}
       <section className="py-20 sm:py-28 section-alt">
         <div className="section-divider" aria-hidden="true" />
         <Container>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold text-foreground">WhatsApp</h3>
                     <p className="text-sm text-muted-foreground">{SITE.phone}</p>
-                    <p className="mt-1 text-xs font-medium text-primary">Recommended — Fastest response</p>
+                    <p className="mt-1 text-xs font-medium text-primary">Recommended. Fastest response</p>
                   </div>
                 </a>
                 <a href={`tel:${SITE.phoneRaw}`} className="flex items-start gap-4 rounded-xl border border-black/[0.08] bg-white p-4 transition-all hover:shadow-md hover:border-black/[0.12]">
@@ -98,7 +98,7 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      {/* WhatsApp Banner — dark */}
+      {/* WhatsApp Banner dark */}
       <section className="py-12 bg-background">
         <div className="section-divider" aria-hidden="true" />
         <Container>

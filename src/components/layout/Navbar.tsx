@@ -190,7 +190,7 @@ export function Navbar() {
             : "opacity-0 pointer-events-none"
         }`}
       >
-        {/* Close button — top right, like Zelta */}
+        {/* Close button top right, like Zelta */}
         <button
           onClick={() => setOpen(false)}
           className="fixed top-5 right-5 sm:top-8 sm:right-8 z-[10000] flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 text-white hover:opacity-70 transition-opacity"
@@ -200,7 +200,7 @@ export function Navbar() {
         </button>
 
         <div className="h-full overflow-y-auto flex flex-col lg:grid lg:grid-cols-[0.9fr_3fr_1.3fr]">
-          {/* Left column — Logo, Social, Quick Links (order 2 on mobile, normal on desktop) */}
+          {/* Left column Logo, Social, Quick Links (order 2 on mobile, normal on desktop) */}
           <div className="flex flex-col justify-center gap-8 sm:gap-10 px-6 sm:px-10 lg:px-12 pt-20 pb-8 lg:py-0 order-2 lg:order-none">
             <Link
               href="/"
@@ -252,7 +252,7 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Center — Main nav (order 1 on mobile, normal on desktop) */}
+          {/* Center Main nav (order 1 on mobile, normal on desktop) */}
           <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-12 py-8 lg:py-0 order-1 lg:order-none">
             <nav aria-label="Main menu" className="flex flex-col items-start gap-3 sm:gap-4">
               {NAV_LINKS.map((link) => (
@@ -273,7 +273,7 @@ export function Navbar() {
             </nav>
           </div>
 
-          {/* Right — Contact info (order 3 on mobile, normal on desktop) */}
+          {/* Right Contact info (order 3 on mobile, normal on desktop) */}
           <div className="flex flex-col justify-center gap-8 px-6 sm:px-10 lg:px-12 py-8 lg:py-0 pb-16 lg:pb-0 order-3 lg:order-none">
             <div>
               <h3 className="text-sm font-medium uppercase tracking-widest text-white/50 mb-4 text-left">

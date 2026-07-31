@@ -8,7 +8,7 @@ import { FinalCTA } from "@/components/home/FinalCTA"
 import { Target, Eye, Zap, Users } from "lucide-react"
 
 export const metadata: Metadata = {
-  title: "About Us | WebStudioKW — Kuwait Web Development Agency",
+  title: "About Us | WebStudioKW | Kuwait Web Development Agency",
   description: "WebStudioKW is a web development agency in Kuwait. We design and build professional websites, ecommerce stores, and custom web applications for businesses across Kuwait.",
   keywords: ["about WebStudioKW", "web development agency Kuwait", "web design company Kuwait", "Kuwait web developer", "digital agency Kuwait", "website company Kuwait", "Osama Shah Kuwait"],
   authors: [{ name: SITE.founder, url: SITE.url }],
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE.url}/about`, languages: { "en": `${SITE.url}/about` } },
   openGraph: {
     type: "website", locale: "en_US", url: `${SITE.url}/about`, siteName: SITE.brand,
-    title: "About Us | WebStudioKW", description: "Learn about WebStudioKW — a Kuwait-based web development agency founded by Osama Shah, building modern websites, ecommerce stores, and custom web apps for businesses across Kuwait.",
-    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "WebStudioKW team — web design and development agency in Kuwait" }],
+    title: "About Us | WebStudioKW", description: "Learn about WebStudioKW. A Kuwait-based web development agency founded by Osama Shah, building modern websites, ecommerce stores, and custom web apps for businesses across Kuwait.",
+    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "WebStudioKW team, web design and development agency in Kuwait" }],
   },
-  twitter: { card: "summary_large_image", title: "About Us | WebStudioKW", description: "Learn about WebStudioKW — a Kuwait-based web development agency building modern websites and ecommerce stores.", images: [`${SITE.url}/og-image.png`], creator: "@webstudiokw" },
+  twitter: { card: "summary_large_image", title: "About Us | WebStudioKW", description: "Learn about WebStudioKW. A Kuwait-based web development agency building modern websites and ecommerce stores.", images: [`${SITE.url}/og-image.png`], creator: "@webstudiokw" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
 }
 
@@ -39,7 +39,7 @@ export default function AboutPage() {
               "@context": "https://schema.org",
               "@type": "AboutPage",
               name: "About WebStudioKW",
-              description: "Learn about WebStudioKW — a Kuwait-based web development agency founded by Osama Shah, building modern websites, ecommerce stores, and custom web apps for businesses across Kuwait.",
+              description: "Learn about WebStudioKW. A Kuwait-based web development agency founded by Osama Shah, building modern websites, ecommerce stores, and custom web apps for businesses across Kuwait.",
               url: `${SITE.url}/about`,
               mainEntity: {
                 "@context": "https://schema.org",
@@ -62,7 +62,7 @@ export default function AboutPage() {
           ]),
         }}
       />
-      {/* Hero — dark */}
+      {/* Hero dark */}
       <section className="bg-background py-20 sm:py-28">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
@@ -73,7 +73,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Story — alt dark */}
+      {/* Story alt dark */}
       <section className="py-20 sm:py-28 section-alt">
         <div className="section-divider" aria-hidden="true" />
         <Container>
@@ -95,7 +95,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Values — dark */}
+      {/* Values dark */}
       <section className="py-20 sm:py-28 bg-background">
         <div className="section-divider" aria-hidden="true" />
         <Container>
@@ -117,7 +117,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Founder — alt dark */}
+      {/* Founder alt dark */}
       <section className="py-20 sm:py-28 section-alt">
         <div className="section-divider" aria-hidden="true" />
         <Container>

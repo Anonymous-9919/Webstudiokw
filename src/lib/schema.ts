@@ -62,7 +62,7 @@ export function generateProfessionalServiceSchema() {
           itemOffered: {
             "@type": "Service",
             name: "Business Website Development in Kuwait",
-            description: "Professional business websites for companies in Kuwait — corporate sites, landing pages, and booking websites",
+            description: "Professional business websites for companies in Kuwait: corporate sites, landing pages, and booking websites",
           },
         },
         {

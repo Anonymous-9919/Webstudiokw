@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: `${SITE.url}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "WebStudioKW — web design and development agency in Kuwait building modern websites and ecommerce stores",
+        alt: "WebStudioKW, web design and development agency in Kuwait building modern websites and ecommerce stores",
       },
     ],
   },
@@ -123,10 +123,10 @@ export default function RootLayout({
         </a>
         <SecurityGuard />
         <PullToRefresh />
-        {/* Header OUTSIDE smooth-scroll — like Zelta. mix-blend-mode needs to blend with viewport content */}
+        {/* Header OUTSIDE smooth-scroll like Zelta. mix-blend-mode needs to blend with viewport content */}
         <Navbar />
 
-        {/* Smooth scroll wrapper — only wraps the scrollable content */}
+        {/* Smooth scroll wrapper only wraps the scrollable content */}
         <SmoothScroll>
           <main id="main-content">{children}</main>
           <Footer />

@@ -1,6 +1,6 @@
 export const SITE = {
   name: "WebStudioKW",
-  title: "Web Development Kuwait | Website Design & Ecommerce — WebStudioKW",
+  title: "Web Development Kuwait | Website Design & Ecommerce | WebStudioKW",
   description:
     "Web development agency in Kuwait. We design and build professional business websites, ecommerce stores, and custom web apps. Packages from 150 KWD. Get a free quote.",
   url: "https://webstudiokw.com",
@@ -209,7 +209,7 @@ export const FAQS = [
   {
     question: "Will my website be mobile-friendly?",
     answer:
-      "Absolutely. Every website we build is fully responsive and looks great on all devices — phones, tablets, and desktops. Mobile-first design is our standard.",
+      "Absolutely. Every website we build is fully responsive and looks great on all devices, phones, tablets, and desktops. Mobile-first design is our standard.",
   },
   {
     question: "Do you provide ongoing support after the website is launched?",

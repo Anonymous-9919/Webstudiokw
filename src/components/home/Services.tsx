@@ -130,7 +130,7 @@ export function Services() {
             </ScrollReveal>
           </div>
 
-          {/* Right column - Service List — Zelta style accordion, clearly clickable */}
+          {/* Right column - Service List Zelta style accordion, clearly clickable */}
           <div className="lg:col-span-8">
             <div>
               {services.map((service, index) => (
@@ -184,7 +184,7 @@ export function Services() {
                         >
                           {service.title}
                         </h3>
-                        {/* Arrow indicator — always visible to show clickability */}
+                        {/* Arrow indicator always visible to show clickability */}
                         <ArrowRight
                           className={cn(
                             "w-5 h-5 shrink-0 transition-all duration-500",

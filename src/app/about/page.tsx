@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website", locale: "en_US", url: `${SITE.url}/about`, siteName: SITE.brand,
     title: "About Us | WebStudioKW", description: "Learn about WebStudioKW. A Kuwait-based web development agency founded by Osama Shah, building modern websites, ecommerce stores, and custom web apps for businesses across Kuwait.",
-    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "WebStudioKW team, web design and development agency in Kuwait" }],
+    images: [{ url: `${SITE.url}/opengraph-image.png`, width: 1200, height: 630, alt: "WebStudioKW team, web design and development agency in Kuwait" }],
   },
-  twitter: { card: "summary_large_image", title: "About Us | WebStudioKW", description: "Learn about WebStudioKW. A Kuwait-based web development agency building modern websites and ecommerce stores.", images: [`${SITE.url}/og-image.png`], creator: "@webstudiokw" },
+  twitter: { card: "summary_large_image", title: "About Us | WebStudioKW", description: "Learn about WebStudioKW. A Kuwait-based web development agency building modern websites and ecommerce stores.", images: [`${SITE.url}/opengraph-image.png`], creator: "@webstudiokw" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
 }
 

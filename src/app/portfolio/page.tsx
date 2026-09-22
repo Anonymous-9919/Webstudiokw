@@ -31,7 +31,7 @@ export const metadata: Metadata = {
       "Websites, ecommerce stores, and web apps WebStudioKW built for businesses in Kuwait.",
     images: [
       {
-        url: `${SITE.url}/og-image.png`,
+        url: `${SITE.url}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: "WebStudioKW portfolio, web design and development projects in Kuwait",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Portfolio & Case Studies | WebStudioKW",
     description:
       "Websites, ecommerce stores, and web apps WebStudioKW built for businesses in Kuwait.",
-    images: [`${SITE.url}/og-image.png`],
+    images: [`${SITE.url}/opengraph-image.png`],
     creator: "@webstudiokw",
   },
   alternates: {

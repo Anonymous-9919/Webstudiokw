@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description: SITE.description,
     images: [
       {
-        url: `${SITE.url}/og-image.png`,
+        url: `${SITE.url}/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: "WebStudioKW, web design and development agency in Kuwait building modern websites and ecommerce stores",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE.title,
     description: SITE.description,
-    images: [`${SITE.url}/og-image.png`],
+    images: [`${SITE.url}/opengraph-image.png`],
     creator: "@webstudiokw",
   },
   robots: {

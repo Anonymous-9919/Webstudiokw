@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website", locale: "en_US", url: `${SITE.url}/contact`, siteName: SITE.brand,
     title: "Contact Us | WebStudioKW", description: "Contact WebStudioKW for professional website development in Kuwait. Get a free quote for your website, ecommerce store, or web app project.",
-    images: [{ url: `${SITE.url}/og-image.png`, width: 1200, height: 630, alt: "Contact WebStudioKW, web design and development agency in Kuwait" }],
+    images: [{ url: `${SITE.url}/opengraph-image.png`, width: 1200, height: 630, alt: "Contact WebStudioKW, web design and development agency in Kuwait" }],
   },
-  twitter: { card: "summary_large_image", title: "Contact Us | WebStudioKW", description: "Contact WebStudioKW for professional website development in Kuwait. Get a free quote.", images: [`${SITE.url}/og-image.png`], creator: "@webstudiokw" },
+  twitter: { card: "summary_large_image", title: "Contact Us | WebStudioKW", description: "Contact WebStudioKW for professional website development in Kuwait. Get a free quote.", images: [`${SITE.url}/opengraph-image.png`], creator: "@webstudiokw" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-video-preview": -1, "max-image-preview": "large", "max-snippet": -1 } },
 }
 

@@ -78,7 +78,7 @@ const projects = [
     category: "Ecommerce Store",
     description: "Bilingual online pet store with delivery or pickup, product browsing, and WhatsApp customer support.",
     gradient: "from-orange-400 to-amber-500",
-    image: "/images/portfolio-pet-store-kuwait.png",
+    image: "/images/portfolio-pet-store-kuwait.jpg",
     url: "https://petstorekuwait.vercel.app/",
   },
   {

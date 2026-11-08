@@ -80,7 +80,7 @@ const projects = [
     category: "Ecommerce Store",
     description: "Bilingual online pet store with delivery or pickup, product browsing, and WhatsApp customer support.",
     gradient: "from-orange-400 to-amber-500",
-    image: "/images/portfolio-pet-store-kuwait.png",
+    image: "/images/portfolio-pet-store-kuwait.jpg",
     url: "https://petstorekuwait.vercel.app/",
   },
   {
@@ -112,10 +112,12 @@ const projects = [
   },
 ]
 
-const row1 = projects.slice(0, 3)
-const row2 = projects.slice(3, 6)
-const row3 = projects.slice(6, 9)
-const row4 = projects.slice(9, 12)
+const row1 = projects.slice(0, 2)
+const row2 = projects.slice(2, 4)
+const row3 = projects.slice(4, 6)
+const row4 = projects.slice(6, 8)
+const row5 = projects.slice(8, 10)
+const row6 = projects.slice(10, 12)
 
 export default function PortfolioPage() {
   const planeRef = useRef<HTMLDivElement>(null)
@@ -123,6 +125,8 @@ export default function PortfolioPage() {
   const row2Ref = useRef<HTMLDivElement>(null)
   const row3Ref = useRef<HTMLDivElement>(null)
   const row4Ref = useRef<HTMLDivElement>(null)
+  const row5Ref = useRef<HTMLDivElement>(null)
+  const row6Ref = useRef<HTMLDivElement>(null)
   const ctaTitleRef = useRef<HTMLHeadingElement>(null)
   const ctaBtnRef = useRef<HTMLDivElement>(null)
   const ctaSectionRef = useRef<HTMLElement>(null)
@@ -156,15 +160,17 @@ export default function PortfolioPage() {
       }
 
       // Row parallax alternating directions
-      if (row1Ref.current) {
+      const animateRow = (row: HTMLDivElement | null, movingLeft: boolean) => {
+        if (!row) return
+
         gsap.fromTo(
-          row1Ref.current,
-          { x: 200 },
+          row,
+          { x: movingLeft ? 200 : -200 },
           {
-            x: -200,
+            x: movingLeft ? -200 : 200,
             ease: "none",
             scrollTrigger: {
-              trigger: row1Ref.current,
+              trigger: row,
               start: "top bottom",
               end: "bottom top",
               scrub: 0.5,
@@ -172,54 +178,13 @@ export default function PortfolioPage() {
           }
         )
       }
-      if (row2Ref.current) {
-        gsap.fromTo(
-          row2Ref.current,
-          { x: -200 },
-          {
-            x: 200,
-            ease: "none",
-            scrollTrigger: {
-              trigger: row2Ref.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.5,
-            },
-          }
-        )
-      }
-      if (row3Ref.current) {
-        gsap.fromTo(
-          row3Ref.current,
-          { x: 200 },
-          {
-            x: -200,
-            ease: "none",
-            scrollTrigger: {
-              trigger: row3Ref.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.5,
-            },
-          }
-        )
-      }
-      if (row4Ref.current) {
-        gsap.fromTo(
-          row4Ref.current,
-          { x: -200 },
-          {
-            x: 200,
-            ease: "none",
-            scrollTrigger: {
-              trigger: row4Ref.current,
-              start: "top bottom",
-              end: "bottom top",
-              scrub: 0.5,
-            },
-          }
-        )
-      }
+
+      animateRow(row1Ref.current, true)
+      animateRow(row2Ref.current, false)
+      animateRow(row3Ref.current, true)
+      animateRow(row4Ref.current, false)
+      animateRow(row5Ref.current, true)
+      animateRow(row6Ref.current, false)
 
       // CTA text 3D reveal
       if (ctaTitleRef.current) {
@@ -298,7 +263,7 @@ export default function PortfolioPage() {
       />
 
       {/* Hero + Grid same section so cards animate over the text like Zelta */}
-      <section className="hidden lg:block relative overflow-hidden pt-20 sm:pt-28 pb-32 sm:pb-48" style={{ perspective: "1200px" }}>
+      <section className="hidden lg:block relative overflow-hidden pt-20 sm:pt-28 pb-12 sm:pb-16" style={{ perspective: "1200px", paddingBottom: "580px" }}>
         <Container>
           <div className="max-w-3xl text-left relative z-10">
             <Link
@@ -342,8 +307,22 @@ export default function PortfolioPage() {
           </div>
 
           {/* Row 4 normal */}
-          <div ref={row4Ref} className="flex gap-5 sm:gap-[70px] pl-0 sm:pl-20">
+          <div ref={row4Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] pl-0 sm:pl-20">
             {row4.map((project) => (
+              <CaseCard key={project.id} project={project} />
+            ))}
+          </div>
+
+          {/* Row 5 reversed */}
+          <div ref={row5Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] justify-end pr-0 sm:pr-20">
+            {row5.map((project) => (
+              <CaseCard key={project.id} project={project} />
+            ))}
+          </div>
+
+          {/* Row 6 normal */}
+          <div ref={row6Ref} className="flex justify-center gap-5 sm:gap-[70px]">
+            {row6.map((project) => (
               <CaseCard key={project.id} project={project} />
             ))}
           </div>

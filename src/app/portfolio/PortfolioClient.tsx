@@ -65,17 +65,64 @@ const projects = [
     image: "/images/portfolio-restaurant.jpg",
     url: "https://bluehorizon-theta.vercel.app/",
   },
+  {
+    id: "pet-store-kwt",
+    title: "Pet Store KWT",
+    category: "Ecommerce Store",
+    description: "Online pet store with product categories, popular brand collections, and cart checkout.",
+    gradient: "from-lime-500 to-emerald-600",
+    image: "/images/portfolio-pet-store-kwt.jpg",
+    url: "https://petstorekwt-concept.vercel.app/",
+  },
+  {
+    id: "pet-store-kuwait",
+    title: "Pet Store Kuwait",
+    category: "Ecommerce Store",
+    description: "Bilingual online pet store with delivery or pickup, product browsing, and WhatsApp customer support.",
+    gradient: "from-orange-400 to-amber-500",
+    image: "/images/portfolio-pet-store-kuwait.png",
+    url: "https://petstorekuwait.vercel.app/",
+  },
+  {
+    id: "kabab-khas",
+    title: "Kabab Khas",
+    category: "Restaurant Ordering",
+    description: "Restaurant ordering website with delivery, pickup, menu categories, and WhatsApp customer support.",
+    gradient: "from-red-500 to-orange-600",
+    image: "/images/portfolio-kabab-khas.jpg",
+    url: "https://kababkhas.vercel.app/",
+  },
+  {
+    id: "las-management",
+    title: "LAS Management",
+    category: "Management Web App",
+    description: "Admin and employee management web application with secure sign-in access.",
+    gradient: "from-violet-500 to-indigo-600",
+    image: "/images/portfolio-las-management.jpg",
+    url: "https://laskwt-webapp.vercel.app/",
+  },
+  {
+    id: "las-store",
+    title: "LAS Store",
+    category: "Shopify Store",
+    description: "Shopify ecommerce storefront created for the LAS brand.",
+    gradient: "from-fuchsia-500 to-rose-600",
+    image: "/images/portfolio-las-store.jpg",
+    url: "https://las-8522.myshopify.com/",
+  },
 ]
 
-const row1 = projects.slice(0, 2)
-const row2 = projects.slice(2, 4)
-const row3 = projects.slice(4, 6)
+const row1 = projects.slice(0, 3)
+const row2 = projects.slice(3, 6)
+const row3 = projects.slice(6, 9)
+const row4 = projects.slice(9, 12)
 
 export default function PortfolioPage() {
   const planeRef = useRef<HTMLDivElement>(null)
   const row1Ref = useRef<HTMLDivElement>(null)
   const row2Ref = useRef<HTMLDivElement>(null)
   const row3Ref = useRef<HTMLDivElement>(null)
+  const row4Ref = useRef<HTMLDivElement>(null)
   const ctaTitleRef = useRef<HTMLHeadingElement>(null)
   const ctaBtnRef = useRef<HTMLDivElement>(null)
   const ctaSectionRef = useRef<HTMLElement>(null)
@@ -150,6 +197,22 @@ export default function PortfolioPage() {
             ease: "none",
             scrollTrigger: {
               trigger: row3Ref.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.5,
+            },
+          }
+        )
+      }
+      if (row4Ref.current) {
+        gsap.fromTo(
+          row4Ref.current,
+          { x: -200 },
+          {
+            x: 200,
+            ease: "none",
+            scrollTrigger: {
+              trigger: row4Ref.current,
               start: "top bottom",
               end: "bottom top",
               scrub: 0.5,
@@ -235,7 +298,7 @@ export default function PortfolioPage() {
       />
 
       {/* Hero + Grid same section so cards animate over the text like Zelta */}
-      <section className="hidden lg:block relative overflow-hidden pt-20 sm:pt-28 pb-12 sm:pb-16" style={{ perspective: "1200px", paddingBottom: "580px" }}>
+      <section className="hidden lg:block relative overflow-hidden pt-20 sm:pt-28 pb-32 sm:pb-48" style={{ perspective: "1200px" }}>
         <Container>
           <div className="max-w-3xl text-left relative z-10">
             <Link
@@ -272,8 +335,15 @@ export default function PortfolioPage() {
           </div>
 
           {/* Row 3 reversed */}
-          <div ref={row3Ref} className="flex gap-5 sm:gap-[70px] pr-0 sm:pr-20">
+          <div ref={row3Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] pr-0 sm:pr-20">
             {row3.map((project) => (
+              <CaseCard key={project.id} project={project} />
+            ))}
+          </div>
+
+          {/* Row 4 normal */}
+          <div ref={row4Ref} className="flex gap-5 sm:gap-[70px] pl-0 sm:pl-20">
+            {row4.map((project) => (
               <CaseCard key={project.id} project={project} />
             ))}
           </div>

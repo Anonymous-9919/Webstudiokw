@@ -112,21 +112,16 @@ const projects = [
   },
 ]
 
-const row1 = projects.slice(0, 2)
-const row2 = projects.slice(2, 4)
-const row3 = projects.slice(4, 6)
-const row4 = projects.slice(6, 8)
-const row5 = projects.slice(8, 10)
-const row6 = projects.slice(10, 12)
+// A repeated final tile keeps the desktop collage visually continuous.
+const desktopRows = [
+  projects.slice(0, 4),
+  projects.slice(4, 8),
+  [...projects.slice(8), projects[0]],
+]
 
 export default function PortfolioPage() {
   const planeRef = useRef<HTMLDivElement>(null)
-  const row1Ref = useRef<HTMLDivElement>(null)
-  const row2Ref = useRef<HTMLDivElement>(null)
-  const row3Ref = useRef<HTMLDivElement>(null)
-  const row4Ref = useRef<HTMLDivElement>(null)
-  const row5Ref = useRef<HTMLDivElement>(null)
-  const row6Ref = useRef<HTMLDivElement>(null)
+  const rowRefs = useRef<Array<HTMLDivElement | null>>([])
   const ctaTitleRef = useRef<HTMLHeadingElement>(null)
   const ctaBtnRef = useRef<HTMLDivElement>(null)
   const ctaSectionRef = useRef<HTMLElement>(null)
@@ -163,28 +158,39 @@ export default function PortfolioPage() {
       const animateRow = (row: HTMLDivElement | null, movingLeft: boolean) => {
         if (!row) return
 
+        const getBounds = () => {
+          const firstCard = row.firstElementChild as HTMLElement | null
+          const lastCard = row.lastElementChild as HTMLElement | null
+
+          if (!firstCard || !lastCard) return { min: 0, max: 0 }
+
+          const start = -firstCard.offsetLeft
+          const end = row.clientWidth - lastCard.offsetLeft - lastCard.offsetWidth
+
+          return {
+            min: Math.min(start, end),
+            max: Math.max(start, end),
+          }
+        }
+
         gsap.fromTo(
           row,
-          { x: movingLeft ? 200 : -200 },
+          { x: () => movingLeft ? getBounds().max + 200 : getBounds().min - 200 },
           {
-            x: movingLeft ? -200 : 200,
+            x: () => movingLeft ? getBounds().min - 200 : getBounds().max + 200,
             ease: "none",
             scrollTrigger: {
               trigger: row,
               start: "top bottom",
               end: "bottom top",
               scrub: 0.5,
+              invalidateOnRefresh: true,
             },
           }
         )
       }
 
-      animateRow(row1Ref.current, true)
-      animateRow(row2Ref.current, false)
-      animateRow(row3Ref.current, true)
-      animateRow(row4Ref.current, false)
-      animateRow(row5Ref.current, true)
-      animateRow(row6Ref.current, false)
+      rowRefs.current.forEach((row, index) => animateRow(row, index % 2 === 0))
 
       // CTA text 3D reveal
       if (ctaTitleRef.current) {
@@ -285,47 +291,19 @@ export default function PortfolioPage() {
           </div>
         </Container>
         <div ref={planeRef} className="origin-center" style={{ transformStyle: "preserve-3d" }}>
-          {/* Row 1 reversed */}
-          <div ref={row1Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] justify-end pr-0 sm:pr-20">
-            {row1.map((project) => (
-              <CaseCard key={project.id} project={project} />
-            ))}
-          </div>
-
-          {/* Row 2 normal */}
-          <div ref={row2Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] pl-0 sm:pl-20">
-            {row2.map((project) => (
-              <CaseCard key={project.id} project={project} />
-            ))}
-          </div>
-
-          {/* Row 3 reversed */}
-          <div ref={row3Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] pr-0 sm:pr-20">
-            {row3.map((project) => (
-              <CaseCard key={project.id} project={project} />
-            ))}
-          </div>
-
-          {/* Row 4 normal */}
-          <div ref={row4Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] pl-0 sm:pl-20">
-            {row4.map((project) => (
-              <CaseCard key={project.id} project={project} />
-            ))}
-          </div>
-
-          {/* Row 5 reversed */}
-          <div ref={row5Ref} className="flex gap-5 sm:gap-[70px] mb-5 sm:mb-[70px] justify-end pr-0 sm:pr-20">
-            {row5.map((project) => (
-              <CaseCard key={project.id} project={project} />
-            ))}
-          </div>
-
-          {/* Row 6 normal */}
-          <div ref={row6Ref} className="flex justify-center gap-5 sm:gap-[70px]">
-            {row6.map((project) => (
-              <CaseCard key={project.id} project={project} />
-            ))}
-          </div>
+          {desktopRows.map((row, rowIndex) => (
+            <div
+              key={rowIndex}
+              ref={(node) => {
+                rowRefs.current[rowIndex] = node
+              }}
+              className={`flex gap-5 sm:gap-[70px] ${rowIndex < desktopRows.length - 1 ? "mb-5 sm:mb-[70px]" : ""} ${rowIndex % 2 === 0 ? "justify-end pr-0 sm:pr-20" : "pl-0 sm:pl-20"}`}
+            >
+              {row.map((project, projectIndex) => (
+                <CaseCard key={`${project.id}-${rowIndex}-${projectIndex}`} project={project} />
+              ))}
+            </div>
+          ))}
         </div>
       </section>
 
